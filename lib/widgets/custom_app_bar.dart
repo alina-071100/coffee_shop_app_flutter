@@ -1,0 +1,67 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:iconsax/iconsax.dart';
+
+class CustomAppBar extends StatefulWidget {
+  String? title;
+  IconData? suffixIcon;
+  void Function()? functionBackIcon;
+  void Function()? functionLikeIcon;
+  CustomAppBar(
+      {super.key,
+      this.title,
+      this.suffixIcon,
+      this.functionBackIcon,
+      this.functionLikeIcon});
+
+  @override
+  State<CustomAppBar> createState() => _CustomAppBarState();
+}
+
+class _CustomAppBarState extends State<CustomAppBar> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        top: 60,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          InkWell(
+            onTap: widget.functionBackIcon,
+            // width: 38,
+            // height: 38,
+            // borderRadius: 10,
+            child: const Icon(
+              Iconsax.arrow_left_24,
+              color: Colors.black,
+              size: 24,
+            ),
+          ),
+          Text(
+            widget.title ?? "",
+            textAlign: TextAlign.center,
+            style: GoogleFonts.sora(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: const Color(0xFF2F2D2C),
+            ),
+          ),
+          widget.suffixIcon != null
+              ? InkWell(
+                  onTap: widget.functionLikeIcon,
+                  child: Icon(
+                    widget.suffixIcon ?? Iconsax.heart,
+                    color: Colors.black,
+                    size: 24,
+                  ),
+                )
+              : SizedBox(
+                  width: 24,
+                ),
+        ],
+      ),
+    );
+  }
+}

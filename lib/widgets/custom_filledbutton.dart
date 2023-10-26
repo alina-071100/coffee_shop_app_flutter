@@ -8,7 +8,6 @@ class CustomFilledButton extends StatelessWidget {
   final double borderRadius;
   final Color? borderColor;
   final double borderWidth;
-  final void Function()? onTap;
 
   const CustomFilledButton({
     Key? key,
@@ -16,7 +15,6 @@ class CustomFilledButton extends StatelessWidget {
     required this.height,
     required this.color,
     required this.child,
-    required this.onTap,
     this.borderRadius = 12,
     this.borderColor,
     this.borderWidth = 1,

@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:coffee_shop_app/screens/order_page.dart';
+import 'package:coffee_shop_app/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
@@ -11,7 +13,7 @@ import 'package:coffee_shop_app/widgets/custom_filledbutton.dart';
 class DetailPage extends StatefulWidget {
   final CoffeeModel coffee;
 
-  DetailPage({
+  const DetailPage({
     Key? key,
     required this.coffee,
   }) : super(key: key);
@@ -27,10 +29,12 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 251, 249, 249),
+      backgroundColor: const Color.fromARGB(255, 251, 249, 249),
+      resizeToAvoidBottomInset: false,
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-            color: Color(0xFFFFFFFF), borderRadius: BorderRadius.circular(24)),
+            color: const Color(0xFFFFFFFF),
+            borderRadius: BorderRadius.circular(24)),
         height: 121,
         width: MediaQuery.of(context).size.width,
         child: Padding(
@@ -47,10 +51,10 @@ class _DetailPageState extends State<DetailPage> {
                     style: GoogleFonts.sora(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
-                      color: Color(0xFF9B9B9B),
+                      color: const Color(0xFF9B9B9B),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   RichText(
@@ -61,29 +65,39 @@ class _DetailPageState extends State<DetailPage> {
                             style: GoogleFonts.sora(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w600,
-                                color: Color(0xFFC67C4E))),
+                                color: const Color(0xFFC67C4E))),
                         TextSpan(
                             text: widget.coffee.price.toString(),
                             style: GoogleFonts.sora(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w600,
-                                color: Color(0xFFC67C4E))),
+                                color: const Color(0xFFC67C4E))),
                       ],
                     ),
                   ),
                 ],
               ),
-              CustomFilledButton(
-                onTap: () {},
-                width: 217,
-                height: 62,
-                borderRadius: 16,
-                color: Color(0xFFC67C4E),
-                child: Text('Buy Now',
-                    style: GoogleFonts.sora(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xFFFFFFFF))),
+              InkWell(
+                onTap: () {
+                  print(widget.coffee);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => OrderPage(
+                                coffee: widget.coffee,
+                              )));
+                },
+                child: CustomFilledButton(
+                  width: 217,
+                  height: 62,
+                  borderRadius: 16,
+                  color: const Color(0xFFC67C4E),
+                  child: Text('Buy Now',
+                      style: GoogleFonts.sora(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFFFFFFFF))),
+                ),
               ),
             ],
           ),
@@ -94,55 +108,18 @@ class _DetailPageState extends State<DetailPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 60,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const TestTest(),
-                            ),
-                          );
-                        },
-                        // width: 38,
-                        // height: 38,
-                        // borderRadius: 10,
-                        child: const Icon(
-                          Iconsax.arrow_left_24,
-                          color: Colors.black,
-                          size: 24,
-                        ),
-                      ),
-                      Text(
-                        "Detail",
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.sora(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          color: const Color(0xFF2F2D2C),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {},
-                        child: const Icon(
-                          Iconsax.heart,
-                          color: Colors.black,
-                          size: 24,
-                        ),
-                      ),
-                    ],
+            CustomAppBar(
+              title: "Detail",
+              suffixIcon: Iconsax.heart,
+              functionBackIcon: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const TestTest(),
                   ),
-                ],
-              ),
+                );
+              },
+              functionLikeIcon: () {},
             ),
             Padding(
               padding: const EdgeInsets.only(top: 25),
@@ -286,24 +263,32 @@ class _DetailPageState extends State<DetailPage> {
                 SizedBox(
                   height: 12,
                 ),
-                ReadMoreText(
-                  "A cappuccino is an approximately 150 ml (5 oz) beverage, with 25 ml of espresso coffee and 85ml of fresh milk the fo, In Italian, cappuccino means  which aptly describes the head of foamed milk that sits atop the drink's espresso base. According to history, it also allegedly derives from the dress of the Capuchin order of monks. With their iconic brown hooded cowls and shaved heads, Capuchin monks are a pretty close human resemblance to the ring of crema and white foam that tops the classic beverage.",
-                  style: GoogleFonts.sora(
-                    fontSize: 14,
-                    height: 1.65,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xFF9B9B9B),
-                  ),
-                  trimMode: TrimMode.Line,
-                  moreStyle: TextStyle(
-                      color: Color(0xFFC67C4E), fontWeight: FontWeight.bold),
+                Container(
+                  height: 69,
+                  child: SingleChildScrollView(
+                    child: ReadMoreText(
+                      widget.coffee.description.toString(),
 
-                  lessStyle: TextStyle(
-                      color: Color(0xFFC67C4E), fontWeight: FontWeight.bold),
-                  trimLines: 3,
-                  trimCollapsedText: "Read More",
-                  trimExpandedText: " Show Less",
-                  // colorClickableText: Color(0xFFC67C4E),
+                      style: GoogleFonts.sora(
+                        fontSize: 14,
+                        height: 1.65,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFF9B9B9B),
+                      ),
+                      trimMode: TrimMode.Line,
+                      moreStyle: TextStyle(
+                          color: Color(0xFFC67C4E),
+                          fontWeight: FontWeight.bold),
+
+                      lessStyle: TextStyle(
+                          color: Color(0xFFC67C4E),
+                          fontWeight: FontWeight.bold),
+                      trimLines: 3,
+                      trimCollapsedText: "Read More",
+                      trimExpandedText: " Show Less",
+                      // colorClickableText: Color(0xFFC67C4E),
+                    ),
+                  ),
                 )
               ],
             ),
@@ -368,7 +353,6 @@ class SizeChoiseView extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: index != 0 ? 12 : 0),
       child: CustomFilledButton(
-        onTap: () {},
         height: 43,
         color: selected == false ? Color(0xFFFFFFFF) : Color(0xFFFFF5EE),
         borderColor: selected == false ? Color(0xFFDEDEDE) : Color(0xFFC67C4E),
