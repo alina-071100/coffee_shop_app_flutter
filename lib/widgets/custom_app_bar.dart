@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 
+// ignore: must_be_immutable
 class CustomAppBar extends StatefulWidget {
   String? title;
   IconData? suffixIcon;
@@ -56,8 +57,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
                     color: Colors.black,
                     size: 24,
                   ),
-                )
-              : SizedBox(
+                ):
+               const SizedBox(
                   width: 24,
                 ),
         ],

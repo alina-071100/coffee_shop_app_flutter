@@ -1,6 +1,6 @@
-import 'package:coffee_shop_app/test.dart';
+import 'package:coffee_shop_app/screens/login/login_page.dart';
+import 'package:coffee_shop_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppTheme.backgroundColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -30,12 +30,7 @@ class HomePage extends StatelessWidget {
               child: Text(
                 "Coffee so good, your taste buds will love it.",
                 textAlign: TextAlign.center,
-                style: GoogleFonts.sora(
-                  fontSize: 34,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                  letterSpacing: 0.34,
-                ),
+                style: AppTheme.homeTitle,
               ),
             ),
           ),
@@ -47,38 +42,33 @@ class HomePage extends StatelessWidget {
               child: Text(
                 "The best grain, the finest roast, the powerful flavor.",
                 textAlign: TextAlign.center,
-                style: GoogleFonts.sora(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  color: const Color(0xFFA9A9A9),
-                  letterSpacing: 0.14,
-                ),
+                style: AppTheme.homeSubtile,
               ),
             ),
           ),
+
+          // GetMaterialApp(
+          //         getPages: AppRoutes.routes(),
+          //       ),
           Padding(
             padding: const EdgeInsets.only(top: 16, bottom: 10),
             child: InkWell(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const TestTest()));
+                    MaterialPageRoute(builder: (context) => LoginPage()));
               },
               child: Container(
                   width: 315,
                   height: 62,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
-                    color: Color(0xFFC67C4E),
+                    color: AppTheme.bottomColor,
                   ),
                   child: Center(
                     child: Text(
                       'Get Started',
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.sora(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
-                      ),
+                      style: AppTheme.bottomText,
                     ),
                   )),
             ),

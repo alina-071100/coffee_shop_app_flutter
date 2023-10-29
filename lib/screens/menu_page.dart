@@ -1,9 +1,9 @@
-import 'dart:ui';
 
 import 'package:coffee_shop_app/data/coffee_data.dart';
 import 'package:coffee_shop_app/models/coffee_models.dart';
 import 'package:coffee_shop_app/screens/bag_page.dart';
 import 'package:coffee_shop_app/screens/coffee_detail.dart';
+import 'package:coffee_shop_app/theme/app_theme.dart';
 import 'package:coffee_shop_app/widgets/search_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +25,7 @@ class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFFF9F9F9),
+        backgroundColor: AppTheme.backgroundColor2,
         resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(
           child: Stack(children: [
@@ -37,8 +37,8 @@ class _MenuPageState extends State<MenuPage> {
                       begin: Alignment.topRight,
                       end: Alignment.bottomLeft,
                       colors: [
-                    Color(0xFF131313),
-                    Color(0xFF313131),
+                    AppTheme.gardientColor,
+                    AppTheme.gardient2Color,
                   ])),
             ),
             Padding(
@@ -116,7 +116,8 @@ class _MenuPageState extends State<MenuPage> {
                           image: const DecorationImage(
                               filterQuality: FilterQuality.medium,
                               fit: BoxFit.fill,
-                              image: AssetImage('assets/images/coffee_cup.png')),
+                              image:
+                                  AssetImage('assets/images/coffee_cup.png')),
                           borderRadius: BorderRadius.circular(16)),
                     ),
                     Padding(
@@ -196,7 +197,12 @@ class _MenuPageState extends State<MenuPage> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 0),
                       child: Row(
-                        children: ["Cappuccino", "Machiato", "Latte", "Americano"]
+                        children: [
+                          "Cappuccino",
+                          "Machiato",
+                          "Latte",
+                          "Americano"
+                        ]
                             .asMap()
                             .map(
                               (key, value) => MapEntry(
@@ -228,7 +234,8 @@ class _MenuPageState extends State<MenuPage> {
                                                   fontWeight: FontWeight.w600,
                                                   color: selected == key
                                                       ? Colors.white
-                                                      : const Color(0xFF2F4B4E))),
+                                                      : const Color(
+                                                          0xFF2F4B4E))),
                                         ),
                                       ),
                                     ),
@@ -381,8 +388,10 @@ class _MenuPageState extends State<MenuPage> {
                     scale: 0.8,
                     child: CupertinoButton(
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => BagPage()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const BagPage()));
                       },
                       color: const Color(0xFFC67C4E),
                       padding: EdgeInsets.zero,

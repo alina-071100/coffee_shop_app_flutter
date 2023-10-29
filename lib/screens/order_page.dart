@@ -1,4 +1,5 @@
 import 'package:coffee_shop_app/models/coffee_models.dart';
+import 'package:coffee_shop_app/screens/delivery_page.dart';
 
 import 'package:coffee_shop_app/widgets/custom_app_bar.dart';
 import 'package:coffee_shop_app/widgets/custom_filledbutton.dart';
@@ -9,7 +10,7 @@ import 'package:iconsax/iconsax.dart';
 class OrderPage extends StatefulWidget {
   final CoffeeModel? coffee;
 
-  OrderPage({
+ const  OrderPage({
     Key? key,
     this.coffee,
   }) : super(key: key);
@@ -24,7 +25,7 @@ class _OrderPageState extends State<OrderPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFFFFF),
+      backgroundColor: const Color.fromARGB(255, 251, 249, 249),
       resizeToAvoidBottomInset: false,
       body: Column(
         children: [
@@ -44,7 +45,7 @@ class _OrderPageState extends State<OrderPage> {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(14),
-                      color: Color(0xFFF2F2F2)),
+                      color:const Color(0xFFF2F2F2)),
                   height: 50,
                   // width: 315,
 
@@ -54,7 +55,7 @@ class _OrderPageState extends State<OrderPage> {
                       children: [
                         Expanded(
                           child: Container(
-                            child: Center(
+                            child:  Center(
                               child: Text(
                                 "Deliver",
                                 style: GoogleFonts.sora(
@@ -325,6 +326,7 @@ class _OrderPageState extends State<OrderPage> {
               ],
             ),
           ),
+
           Padding(
             padding: const EdgeInsets.only(top: 20, bottom: 20),
             child: Divider(
@@ -334,7 +336,7 @@ class _OrderPageState extends State<OrderPage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30, top: 20),
+            padding: const EdgeInsets.only(left: 30, right: 30),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -483,6 +485,7 @@ class _OrderPageState extends State<OrderPage> {
         ],
       ),
       bottomNavigationBar: Container(
+        padding: EdgeInsets.symmetric(horizontal: 30),
         decoration: BoxDecoration(
             color: Color(0xFFFFFFFF), borderRadius: BorderRadius.circular(24)),
         height: 161,
@@ -491,71 +494,73 @@ class _OrderPageState extends State<OrderPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(left: 29, top: 16),
+              padding: EdgeInsets.only(top: 16),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(
-                    Iconsax.moneys,
-                    color: Color(0xFFC67C4E),
-                  ),
-                  SizedBox(
-                    width: 12,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Color(0xFFF2F2F2)),
-                    height: 24,
-                    width: 112,
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            child: Center(
-                              child: Text(
-                                "Cashe",
-                                style: GoogleFonts.sora(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color(0xFFFFFFFF),
+                  Row(
+                    children: [
+                      Icon(
+                        Iconsax.moneys,
+                        color: Color(0xFFC67C4E),
+                      ),
+                      SizedBox(
+                        width: 12,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Color(0xFFF2F2F2)),
+                        height: 24,
+                        width: 112,
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                child: Center(
+                                  child: Text(
+                                    "Cashe",
+                                    style: GoogleFonts.sora(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xFFFFFFFF),
+                                    ),
+                                  ),
                                 ),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Color(0xFFC67C4E)),
+                                height: 24,
+                                width: 51,
                               ),
                             ),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Color(0xFFC67C4E)),
-                            height: 24,
-                            width: 51,
-                          ),
-                        ),
-                        Expanded(
-                          child: Container(
-                            child: Center(
-                              child: Text(
-                                "\$ ${(widget.coffee?.price ?? 0) + deliveryFee}",
-                                style: GoogleFonts.sora(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color(0xFF2F2D2C),
+                            Expanded(
+                              child: Container(
+                                child: Center(
+                                  child: Text(
+                                    "\$ ${(widget.coffee?.price ?? 0) + deliveryFee}",
+                                    style: GoogleFonts.sora(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xFF2F2D2C),
+                                    ),
+                                  ),
                                 ),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Color(0xFFF2F2F2)),
+                                height: 24,
+                                width: 51,
                               ),
                             ),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Color(0xFFF2F2F2)),
-                            height: 24,
-                            width: 51,
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 165),
-                    child: Icon(
-                      Iconsax.more_circle,
-                      color: Color(0xFF808080),
-                    ),
+                const  Icon(
+                    Iconsax.more_circle5,
+                    color: Color(0xFF808080),
                   )
                 ],
               ),
@@ -564,28 +569,27 @@ class _OrderPageState extends State<OrderPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  InkWell(
-                    onTap: () {
-                      print(widget.coffee);
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => OrderPage(
-                      //               coffee: widget.coffee,
-                      //             ),
-                      //             ),
-                      //             );
-                    },
-                    child: CustomFilledButton(
-                      width: 340,
-                      height: 62,
-                      borderRadius: 16,
-                      color: Color(0xFFC67C4E),
-                      child: Text('Order',
-                          style: GoogleFonts.sora(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xFFFFFFFF))),
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        print(widget.coffee);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const DeliveryPage(),
+                          ),
+                        );
+                      },
+                      child: CustomFilledButton(
+                        height: 62,
+                        borderRadius: 16,
+                        color:const  Color(0xFFC67C4E),
+                        child: Text('Order',
+                            style: GoogleFonts.sora(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                                color: const Color(0xFFFFFFFF))),
+                      ),
                     ),
                   ),
                 ],

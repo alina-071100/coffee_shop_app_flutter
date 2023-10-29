@@ -79,6 +79,7 @@ class _DetailPageState extends State<DetailPage> {
               ),
               InkWell(
                 onTap: () {
+                  // ignore: avoid_print
                   print(widget.coffee);
                   Navigator.push(
                       context,
@@ -88,7 +89,7 @@ class _DetailPageState extends State<DetailPage> {
                               )));
                 },
                 child: CustomFilledButton(
-                  width: 217,
+                  width: MediaQuery.of(context).size.width / 1.8,
                   height: 62,
                   borderRadius: 16,
                   color: const Color(0xFFC67C4E),
@@ -96,7 +97,7 @@ class _DetailPageState extends State<DetailPage> {
                       style: GoogleFonts.sora(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
-                          color: Color(0xFFFFFFFF))),
+                          color: const Color(0xFFFFFFFF))),
                 ),
               ),
             ],
@@ -202,29 +203,29 @@ class _DetailPageState extends State<DetailPage> {
                         width: 44,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(14),
-                          color: Color(0xFFF9F9F9),
+                          color:const  Color(0xFFF9F9F9),
                         ),
                         child: Image.asset(
                           "assets/images/coffee-bean.png",
-                          color: Color(0xFFC67C4E),
+                          color: const Color(0xFFC67C4E),
                           // height: 24,
                           // width: 24,
                         ),
                       ),
-                      SizedBox(
+                     const SizedBox(
                         width: 12,
                       ),
                       Container(
-                        padding: EdgeInsets.all(10),
+                        padding:const EdgeInsets.all(10),
                         height: 44,
                         width: 44,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(14),
-                          color: Color(0xFFF9F9F9),
+                          color: const Color(0xFFF9F9F9),
                         ),
                         child: Image.asset(
                           "assets/images/packaging.png",
-                          color: Color(0xFFC67C4E),
+                          color:const Color(0xFFC67C4E),
                           // height: 24,
                           // width: 24,
                         ),
@@ -234,19 +235,19 @@ class _DetailPageState extends State<DetailPage> {
                 ],
               ),
             ),
-            SizedBox(
+           const SizedBox(
               height: 20,
             ),
             const Center(
               child: Padding(
-                padding: const EdgeInsets.only(right: 0),
+                padding:  EdgeInsets.only(right: 0),
                 child: Divider(
                   color: Color(0xFFEAEAEA),
                   thickness: 1,
                 ),
               ),
             ),
-            SizedBox(
+           const SizedBox(
               height: 20,
             ),
             Column(
@@ -257,13 +258,13 @@ class _DetailPageState extends State<DetailPage> {
                   style: GoogleFonts.sora(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
-                    color: Color(0xFF2F2D2C),
+                    color: const Color(0xFF2F2D2C),
                   ),
                 ),
-                SizedBox(
+              const  SizedBox(
                   height: 12,
                 ),
-                Container(
+                SizedBox(
                   height: 69,
                   child: SingleChildScrollView(
                     child: ReadMoreText(
@@ -273,14 +274,14 @@ class _DetailPageState extends State<DetailPage> {
                         fontSize: 14,
                         height: 1.65,
                         fontWeight: FontWeight.w400,
-                        color: Color(0xFF9B9B9B),
+                        color:const Color(0xFF9B9B9B),
                       ),
                       trimMode: TrimMode.Line,
-                      moreStyle: TextStyle(
+                      moreStyle: const TextStyle(
                           color: Color(0xFFC67C4E),
                           fontWeight: FontWeight.bold),
 
-                      lessStyle: TextStyle(
+                      lessStyle: const TextStyle(
                           color: Color(0xFFC67C4E),
                           fontWeight: FontWeight.bold),
                       trimLines: 3,
@@ -292,7 +293,7 @@ class _DetailPageState extends State<DetailPage> {
                 )
               ],
             ),
-            SizedBox(
+          const  SizedBox(
               height: 20,
             ),
             Align(
@@ -302,11 +303,11 @@ class _DetailPageState extends State<DetailPage> {
                 style: GoogleFonts.sora(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
-                  color: Color(0xFF2F2D2C),
+                  color:const Color(0xFF2F2D2C),
                 ),
               ),
             ),
-            SizedBox(
+          const  SizedBox(
               height: 12,
             ),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -317,6 +318,7 @@ class _DetailPageState extends State<DetailPage> {
                           onTap: () {
                             selectedItem = index;
                             setState(() {});
+                            // ignore: avoid_print
                             print(selectedItem);
                           },
                           child: SizeChoiseView(
@@ -327,7 +329,7 @@ class _DetailPageState extends State<DetailPage> {
                         ),
                       )),
             ]),
-            SizedBox(
+           const SizedBox(
               height: 17,
             ),
           ],
@@ -337,6 +339,7 @@ class _DetailPageState extends State<DetailPage> {
   }
 }
 
+// ignore: must_be_immutable
 class SizeChoiseView extends StatelessWidget {
   int? index;
   bool? selected;
@@ -354,14 +357,14 @@ class SizeChoiseView extends StatelessWidget {
       padding: EdgeInsets.only(left: index != 0 ? 12 : 0),
       child: CustomFilledButton(
         height: 43,
-        color: selected == false ? Color(0xFFFFFFFF) : Color(0xFFFFF5EE),
-        borderColor: selected == false ? Color(0xFFDEDEDE) : Color(0xFFC67C4E),
+        color: selected == false ? const Color(0xFFFFFFFF) : const Color(0xFFFFF5EE),
+        borderColor: selected == false ? const Color(0xFFDEDEDE) : const Color(0xFFC67C4E),
         child: Text(
           size ?? "",
           style: GoogleFonts.sora(
             fontSize: 14,
             fontWeight: FontWeight.w400,
-            color: Color(0xFF2F2D2C),
+            color: const Color(0xFF2F2D2C),
           ),
           // style: Color(0xFFFFFFFF),
         ),
