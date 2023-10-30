@@ -10,7 +10,7 @@ import 'package:iconsax/iconsax.dart';
 class OrderPage extends StatefulWidget {
   final CoffeeModel? coffee;
 
- const  OrderPage({
+  const OrderPage({
     Key? key,
     this.coffee,
   }) : super(key: key);
@@ -45,7 +45,7 @@ class _OrderPageState extends State<OrderPage> {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(14),
-                      color:const Color(0xFFF2F2F2)),
+                      color: const Color(0xFFF2F2F2)),
                   height: 50,
                   // width: 315,
 
@@ -55,7 +55,7 @@ class _OrderPageState extends State<OrderPage> {
                       children: [
                         Expanded(
                           child: Container(
-                            child:  Center(
+                            child: Center(
                               child: Text(
                                 "Deliver",
                                 style: GoogleFonts.sora(
@@ -326,7 +326,6 @@ class _OrderPageState extends State<OrderPage> {
               ],
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.only(top: 20, bottom: 20),
             child: Divider(
@@ -558,7 +557,7 @@ class _OrderPageState extends State<OrderPage> {
                       ),
                     ],
                   ),
-                const  Icon(
+                  const Icon(
                     Iconsax.more_circle5,
                     color: Color(0xFF808080),
                   )
@@ -583,7 +582,7 @@ class _OrderPageState extends State<OrderPage> {
                       child: CustomFilledButton(
                         height: 62,
                         borderRadius: 16,
-                        color:const  Color(0xFFC67C4E),
+                        color: const Color(0xFFC67C4E),
                         child: Text('Order',
                             style: GoogleFonts.sora(
                                 fontSize: 16,

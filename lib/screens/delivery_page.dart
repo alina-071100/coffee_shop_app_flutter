@@ -1,4 +1,4 @@
-
+import 'package:coffee_shop_app/widgets/custom_app_bar.dart';
 import 'package:coffee_shop_app/widgets/map_widget.dart';
 import 'package:coffee_shop_app/widgets/panel_widget.dart';
 import 'package:flutter/material.dart';
@@ -19,16 +19,28 @@ class _DeliveryPageState extends State<DeliveryPage> {
 
     // var size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SlidingUpPanel(
-        body: const MapWidget(),
-        maxHeight: panelHeightOpen,
-        minHeight: 310,
-        parallaxEnabled: true,
-        parallaxOffset: .5,
-        panelBuilder: (controller) => PanelWidget(
-          controller: controller,
-        ),
-        borderRadius: BorderRadius.circular(24),
+      body: Stack(
+        children: [
+          SlidingUpPanel(
+            body: const MapWidget(),
+            maxHeight: panelHeightOpen,
+            minHeight: 310,
+            parallaxEnabled: true,
+            parallaxOffset: .5,
+            panelBuilder: (controller) => PanelWidget(
+              controller: controller,
+            ),
+            borderRadius: BorderRadius.circular(24),
+          ),
+          Positioned(
+            child: CustomAppBar(
+              functionBackIcon: () {
+                Navigator.pop(context);
+              },
+            ),
+            left: 30,
+          ),
+        ],
       ),
 
       // bottomSheet: DraggableScrollableSheet(

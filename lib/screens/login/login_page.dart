@@ -1,22 +1,27 @@
 import 'package:coffee_shop_app/screens/login/components/button.dart';
 import 'package:coffee_shop_app/screens/login/components/square_tile.dart';
 import 'package:coffee_shop_app/screens/login/components/textfield.dart';
+import 'package:coffee_shop_app/screens/login/firebase_helper.dart';
 import 'package:coffee_shop_app/screens/login/registre_page.dart';
+import 'package:coffee_shop_app/screens/menu_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   final usernameController = TextEditingController();
+
   final passwordController = TextEditingController();
 
   // sign user in method
-  Future signUserIn() async {
-    await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: usernameController.text, password: passwordController.text);
-  }
+  ServicFire servis = ServicFire();
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +96,10 @@ class LoginPage extends StatelessWidget {
 
                 // sign in button
                 MyButton(
-                  onTap: signUserIn,
+                  onTap: () {
+                    servis.loginUser(context, usernameController.text,
+                        passwordController.text);
+                  },
                   title: "Sign In",
                 ),
 

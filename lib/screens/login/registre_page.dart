@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:coffee_shop_app/screens/login/components/button.dart';
 import 'package:coffee_shop_app/screens/login/components/register_button.dart';
 import 'package:coffee_shop_app/screens/login/components/textfield.dart';
@@ -5,6 +7,8 @@ import 'package:coffee_shop_app/widgets/custom_app_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'firebase_helper.dart';
 
 class RegistrePage extends StatefulWidget {
   const RegistrePage({super.key});
@@ -20,12 +24,7 @@ class _RegistrePageState extends State<RegistrePage> {
   final addressController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
-  Future registerUserIn() async {
-    await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: usernameController.text,
-      password: passwordController.text,
-    );
-  }
+  ServicFire service = ServicFire();
 
   @override
   Widget build(BuildContext context) {
@@ -118,7 +117,10 @@ class _RegistrePageState extends State<RegistrePage> {
 
               // sign in button
               MyButton(
-                onTap: registerUserIn,
+                onTap: () {
+                  service.createUser(
+                      context, emailController.text, passwordController.text);
+                },
                 title: "Sign Up",
               ),
             ],
