@@ -1,11 +1,8 @@
 import 'package:coffee_shop_app/screens/login/components/button.dart';
-import 'package:coffee_shop_app/screens/login/components/square_tile.dart';
 import 'package:coffee_shop_app/screens/login/components/textfield.dart';
 import 'package:coffee_shop_app/screens/login/firebase_helper.dart';
+import 'package:coffee_shop_app/screens/login/forgotten_password_page.dart';
 import 'package:coffee_shop_app/screens/login/registre_page.dart';
-import 'package:coffee_shop_app/screens/menu_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -27,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color(0xFFF9F9F9),
+      backgroundColor: const  Color(0xFFF9F9F9),
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -85,9 +82,17 @@ class _LoginPageState extends State<LoginPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text(
-                      'Forgot Password?',
-                      style: TextStyle(color: Colors.grey[600]),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>const  ResetPasswordScreen()));
+                      },
+                      child: Text(
+                        'Forgot Password?',
+                        style: TextStyle(color: Colors.grey[600]),
+                      ),
                     ),
                   ],
                 ),
@@ -147,12 +152,6 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(color: Colors.grey[700]),
                     ),
                     const SizedBox(width: 4),
-                    // InkWell(
-                    //   onTap: () {
-                    //     Navigator.push(context,
-                    //         MaterialPageRoute(builder: (context) => LoginPage()));
-                    //   },
-                    // ),
                     InkWell(
                       onTap: () {
                         Navigator.push(

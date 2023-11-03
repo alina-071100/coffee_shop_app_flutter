@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:coffee_shop_app/screens/order_page.dart';
+import 'package:coffee_shop_app/theme/app_theme.dart';
 import 'package:coffee_shop_app/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -33,7 +34,7 @@ class _DetailPageState extends State<DetailPage> {
       resizeToAvoidBottomInset: false,
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-            color: const Color(0xFFFFFFFF),
+            color: AppTheme.button2Color,
             borderRadius: BorderRadius.circular(24)),
         height: 121,
         width: MediaQuery.of(context).size.width,
@@ -48,11 +49,7 @@ class _DetailPageState extends State<DetailPage> {
                 children: [
                   Text(
                     'Price',
-                    style: GoogleFonts.sora(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      color: const Color(0xFF9B9B9B),
-                    ),
+                    style: AppTheme.priceText,
                   ),
                   const SizedBox(
                     height: 8,
@@ -60,18 +57,10 @@ class _DetailPageState extends State<DetailPage> {
                   RichText(
                     text: TextSpan(
                       children: [
-                        TextSpan(
-                            text: '\$ ',
-                            style: GoogleFonts.sora(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600,
-                                color: const Color(0xFFC67C4E))),
+                        TextSpan(text: '\$ ', style: AppTheme.priceValue),
                         TextSpan(
                             text: widget.coffee.price.toString(),
-                            style: GoogleFonts.sora(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600,
-                                color: const Color(0xFFC67C4E))),
+                            style: AppTheme.priceValue),
                       ],
                     ),
                   ),
@@ -92,12 +81,8 @@ class _DetailPageState extends State<DetailPage> {
                   width: MediaQuery.of(context).size.width / 1.8,
                   height: 62,
                   borderRadius: 16,
-                  color: const Color(0xFFC67C4E),
-                  child: Text('Buy Now',
-                      style: GoogleFonts.sora(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: const Color(0xFFFFFFFF))),
+                  color: AppTheme.buttonColor,
+                  child: Text('Buy Now', style: AppTheme.bottomText),
                 ),
               ),
             ],
@@ -147,22 +132,14 @@ class _DetailPageState extends State<DetailPage> {
                     children: [
                       Text(
                         widget.coffee.name,
-                        style: GoogleFonts.sora(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                          color: const Color(0xFF2F2D2C),
-                        ),
+                        style: AppTheme.coffeeNameText,
                       ),
                       const SizedBox(
                         height: 8,
                       ),
                       Text(
                         widget.coffee.coffeeWith,
-                        style: GoogleFonts.sora(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: const Color(0xFF9B9B9B),
-                        ),
+                        style: AppTheme.coffeeWithText,
                       ),
                       const SizedBox(
                         height: 16,
@@ -171,7 +148,7 @@ class _DetailPageState extends State<DetailPage> {
                         children: [
                           const Icon(
                             Icons.star_rounded,
-                            color: Color(0xFFFBBE21),
+                            color:AppTheme.starColor,
                             size: 30,
                           ),
                           const SizedBox(
@@ -179,17 +156,11 @@ class _DetailPageState extends State<DetailPage> {
                           ),
                           Text(
                             widget.coffee.rate.toString(),
-                            style: GoogleFonts.sora(
-                                color: const Color(0xFF2F2D2C),
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600),
+                            style:AppTheme.largeText,
                           ),
                           Text(
                             " (230)",
-                            style: GoogleFonts.sora(
-                                color: const Color(0xFF9B9B9B),
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400),
+                            style:AppTheme.coffeeWithText,
                           ),
                         ],
                       ),
@@ -203,20 +174,18 @@ class _DetailPageState extends State<DetailPage> {
                         width: 44,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(14),
-                          color:const  Color(0xFFF9F9F9),
+                          color: const Color(0xFFF9F9F9),
                         ),
                         child: Image.asset(
                           "assets/images/coffee-bean.png",
-                          color: const Color(0xFFC67C4E),
-                          // height: 24,
-                          // width: 24,
+                          color: AppTheme.buttonColor,
                         ),
                       ),
-                     const SizedBox(
+                      const SizedBox(
                         width: 12,
                       ),
                       Container(
-                        padding:const EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         height: 44,
                         width: 44,
                         decoration: BoxDecoration(
@@ -225,9 +194,7 @@ class _DetailPageState extends State<DetailPage> {
                         ),
                         child: Image.asset(
                           "assets/images/packaging.png",
-                          color:const Color(0xFFC67C4E),
-                          // height: 24,
-                          // width: 24,
+                          color: AppTheme.buttonColor,
                         ),
                       )
                     ],
@@ -235,19 +202,19 @@ class _DetailPageState extends State<DetailPage> {
                 ],
               ),
             ),
-           const SizedBox(
+            const SizedBox(
               height: 20,
             ),
             const Center(
               child: Padding(
-                padding:  EdgeInsets.only(right: 0),
+                padding: EdgeInsets.only(right: 0),
                 child: Divider(
                   color: Color(0xFFEAEAEA),
                   thickness: 1,
                 ),
               ),
             ),
-           const SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Column(
@@ -255,13 +222,9 @@ class _DetailPageState extends State<DetailPage> {
               children: [
                 Text(
                   "Description",
-                  style: GoogleFonts.sora(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: const Color(0xFF2F2D2C),
-                  ),
+                  style:AppTheme.largeText,
                 ),
-              const  SizedBox(
+                const SizedBox(
                   height: 12,
                 ),
                 SizedBox(
@@ -270,19 +233,14 @@ class _DetailPageState extends State<DetailPage> {
                     child: ReadMoreText(
                       widget.coffee.description.toString(),
 
-                      style: GoogleFonts.sora(
-                        fontSize: 14,
-                        height: 1.65,
-                        fontWeight: FontWeight.w400,
-                        color:const Color(0xFF9B9B9B),
-                      ),
+                      style:AppTheme.readeMoreText,
                       trimMode: TrimMode.Line,
                       moreStyle: const TextStyle(
-                          color: Color(0xFFC67C4E),
+                          color:AppTheme.buttonColor,
                           fontWeight: FontWeight.bold),
 
                       lessStyle: const TextStyle(
-                          color: Color(0xFFC67C4E),
+                          color:AppTheme.buttonColor,
                           fontWeight: FontWeight.bold),
                       trimLines: 3,
                       trimCollapsedText: "Read More",
@@ -293,21 +251,17 @@ class _DetailPageState extends State<DetailPage> {
                 )
               ],
             ),
-          const  SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 "Size",
-                style: GoogleFonts.sora(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color:const Color(0xFF2F2D2C),
-                ),
+                style: AppTheme.largeText,
               ),
             ),
-          const  SizedBox(
+            const SizedBox(
               height: 12,
             ),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -329,7 +283,7 @@ class _DetailPageState extends State<DetailPage> {
                         ),
                       )),
             ]),
-           const SizedBox(
+            const SizedBox(
               height: 17,
             ),
           ],
@@ -357,8 +311,12 @@ class SizeChoiseView extends StatelessWidget {
       padding: EdgeInsets.only(left: index != 0 ? 12 : 0),
       child: CustomFilledButton(
         height: 43,
-        color: selected == false ? const Color(0xFFFFFFFF) : const Color(0xFFFFF5EE),
-        borderColor: selected == false ? const Color(0xFFDEDEDE) : const Color(0xFFC67C4E),
+        color: selected == false
+            ? AppTheme.textColor
+            : const Color(0xFFFFF5EE),
+        borderColor: selected == false
+            ? const Color(0xFFDEDEDE)
+            : AppTheme.buttonColor,
         child: Text(
           size ?? "",
           style: GoogleFonts.sora(

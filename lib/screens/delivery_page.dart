@@ -33,60 +33,15 @@ class _DeliveryPageState extends State<DeliveryPage> {
             borderRadius: BorderRadius.circular(24),
           ),
           Positioned(
-            child: CustomAppBar(
+            left: 30,
+            child:  CustomAppBar(
               functionBackIcon: () {
                 Navigator.pop(context);
               },
             ),
-            left: 30,
           ),
         ],
       ),
-
-      // bottomSheet: DraggableScrollableSheet(
-      //   expand: false,
-      //   builder: (BuildContext context, ScrollController scrollController) {
-      //     return SingleChildScrollView(
-      //       controller: scrollController,
-      //       child: Container(
-      //         color: const Color.fromARGB(255, 97, 23, 23),
-      //         height: 322,
-
-      //         child: Column(children: [
-      //           Container(
-      //               // height: 100,
-      //               )
-      //         ]),
-      //       ),
-      //     );
-      //   },
-      // ),
-      // body: SizedBox(
-      //   width: size.width,
-      //   height: size.height,
-      //   child: FlutterMap(
-      //     options: const MapOptions(
-      //       initialCenter: LatLng(40.7942, 43.84528),
-
-      //       // initialCenter: LatLng(51.509364, -0.128928),
-      //       // initialZoom: 9.2,
-      //     ),
-      //     children: [
-      //       TileLayer(
-      //         urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-      //         userAgentPackageName: 'com.example.app',
-      //       ),
-      //       // RichAttributionWidget(
-      //       //   attributions: [
-      //       //     TextSourceAttribution(
-      //       //       'OpenStreetMap contributors',
-      //       //       onTap: (){},
-      //       //     ),
-      //       //   ],
-      //       // ),
-      //     ],
-      //   ),
-      // ),
     );
   }
 }

@@ -100,19 +100,6 @@ class _RegistrePageState extends State<RegistrePage> {
                 obscureText: true,
               ),
 
-              const SizedBox(height: 10),
-
-              // forgot password?
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'Forgot Password?',
-                    style: TextStyle(color: Colors.grey[600]),
-                  ),
-                ],
-              ),
-
               const SizedBox(height: 25),
 
               // sign in button

@@ -16,9 +16,17 @@ class MyTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       controller: controller,
       obscureText: obscureText,
+       validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Empty email';
+                    }
+                    return null;
+       },
+                         autofocus: false,
+
       decoration: InputDecoration(
         enabledBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: Color.fromARGB(255, 213, 173, 147)),
@@ -37,6 +45,8 @@ class MyTextField extends StatelessWidget {
           color: Colors.grey[500],
         ),
       ),
+
+      
     );
   }
 }

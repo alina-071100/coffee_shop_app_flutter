@@ -91,17 +91,17 @@ class PanelWidget extends StatelessWidget {
                         color: Color(0xFF36C07E),
                         borderRadius: BorderRadius.circular(12)),
                   ),
-                  SizedBox(
+                 const SizedBox(
                     width: 10,
                   ),
                   Container(
                     height: 4,
                     width: 65,
                     decoration: BoxDecoration(
-                        color: Color(0xFF36C07E),
+                        color: const Color(0xFF36C07E),
                         borderRadius: BorderRadius.circular(12)),
                   ),
-                  SizedBox(
+                 const  SizedBox(
                     width: 10,
                   ),
                   Container(
@@ -114,29 +114,15 @@ class PanelWidget extends StatelessWidget {
                 ],
               ),
             ),
-
-            // Padding(
-            //   padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            //   child: DecoratedBox(
-            //     decoration: BoxDecoration(
-            //       borderRadius: BorderRadius.circular(14),
-            //       border: Border.all(color: Color(0xFFEAEAEA)),
-            //       color: Colors.white,
-            //     ),
-            //     child: Container(
-            //       height: 90,
-            //     ),
-            //   ),
-            // ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
-                    color: Color(0xFFFFFFFF),
-                    border: Border.all(color: Color(0xFFEAEAEA))),
+                    color: const Color(0xFFFFFFFF),
+                    border: Border.all(color: const Color(0xFFEAEAEA))),
                 height: 90,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -145,18 +131,18 @@ class PanelWidget extends StatelessWidget {
                       DecoratedBox(
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: Color(0xFFDEDEDE))),
+                            border: Border.all(color: const Color(0xFFDEDEDE))),
                         child: Container(
                           padding: const EdgeInsets.all(10),
                           height: 44,
                           width: 44,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(14),
-                            color: Color(0xFFF9F9F9),
+                            color: const Color(0xFFF9F9F9),
                           ),
                           child: Image.asset(
                             "assets/icons/motorbike.png",
-                            color: Color(0xFFC67C4E),
+                            color: const Color(0xFFC67C4E),
                             // height: 24,
                             // width: 24,
                           ),
@@ -172,10 +158,10 @@ class PanelWidget extends StatelessWidget {
                               style: GoogleFonts.sora(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
-                                color: Color(0xFF303336),
+                                color: const Color(0xFF303336),
                               ),
                             ),
-                            SizedBox(
+                           const SizedBox(
                               height: 8,
                             ),
                             Text(
@@ -183,7 +169,7 @@ class PanelWidget extends StatelessWidget {
                               style: GoogleFonts.sora(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w400,
-                                color: Color(0xFF808080),
+                                color:const  Color(0xFF808080),
                               ),
                             )
                           ],
@@ -194,7 +180,7 @@ class PanelWidget extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+           const SizedBox(height: 20),
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -212,7 +198,7 @@ class PanelWidget extends StatelessWidget {
                           ),
                         )),
                   ),
-                  SizedBox(
+                 const SizedBox(
                     height: 8,
                   ),
                   Padding(
@@ -225,16 +211,16 @@ class PanelWidget extends StatelessWidget {
                           style: GoogleFonts.sora(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
-                            color: Color(0xFF303336),
+                            color: const  Color(0xFF303336),
                           ),
                         ),
-                        SizedBox(height: 8),
+                       const SizedBox(height: 8),
                         Text(
                           "Personal Courier",
                           style: GoogleFonts.sora(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
-                            color: Color(0xFF808080),
+                            color: const Color(0xFF808080),
                           ),
                         )
                       ],
@@ -244,12 +230,12 @@ class PanelWidget extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(14),
                         border: Border.all(
-                          color: Color(0xFFDEDEDE),
+                          color: const Color(0xFFDEDEDE),
                         )),
-                    child: Container(
+                    child: const SizedBox(
                       height: 54,
                       width: 54,
-                      child: Icon(
+                      child:  Icon(
                         Icons.phone_in_talk_rounded,
                         color: Color(0xFF808080),
                       ),

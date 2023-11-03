@@ -18,7 +18,7 @@ class SearchWidget extends StatelessWidget {
       child: TextField(
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.only(top: 15),
-          prefixIcon: Icon(
+          prefixIcon: const  Icon(
             Iconsax.search_normal_1,
             color: Colors.white,
           ),
@@ -31,7 +31,7 @@ class SearchWidget extends StatelessWidget {
               ),
               width: 44,
               height: 44,
-              child: Icon(
+              child: const Icon(
                 Iconsax.setting_4,
                 color: Colors.white,
               ),

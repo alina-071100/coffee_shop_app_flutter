@@ -46,10 +46,6 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-
-          // GetMaterialApp(
-          //         getPages: AppRoutes.routes(),
-          //       ),
           Padding(
             padding: const EdgeInsets.only(top: 16, bottom: 10),
             child: InkWell(
@@ -62,7 +58,7 @@ class HomePage extends StatelessWidget {
                   height: 62,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
-                    color: AppTheme.bottomColor,
+                    color: AppTheme.buttonColor,
                   ),
                   child: Center(
                     child: Text(
