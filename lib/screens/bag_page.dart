@@ -50,49 +50,49 @@ class _BagPageState extends State<BagPage> {
                     SizedBox(
                       height: 30,
                     ),
-                    if (myType.addCoffee.isEmpty)
-                      Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              height: 30,
-                            ),
-                            Icon(
-                              Iconsax.bag,
-                              size: 35,
-                              color: Colors.grey,
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text(
-                              "Your cart is empty!",
-                              style: GoogleFonts.poppins(
-                                color: Colors.grey,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
                     // SizedBox(
                     //   height: 50,
                     // ),
                     Container(
                       height: 500,
-                      child: ListView.builder(
-                          itemCount: context
-                              .watch<MenuPageProvider>()
-                              .addCoffee
-                              .length,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 4.0),
-                              child: singleCoffee(
-                                  myType.addCoffee[index], context),
-                            );
-                          }),
+                      child: myType.addCoffee.isNotEmpty
+                          ? ListView.builder(
+                              itemCount: context
+                                  .watch<MenuPageProvider>()
+                                  .addCoffee
+                                  .length,
+                              itemBuilder: (context, index) {
+                                return Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 4.0),
+                                  child: singleCoffee(
+                                      myType.addCoffee[index], context),
+                                );
+                              })
+                          : Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  Icon(
+                                    Iconsax.bag,
+                                    size: 40,
+                                    color: Colors.grey,
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Text(
+                                    "Your cart is empty!",
+                                    style: GoogleFonts.poppins(
+                                      color: Colors.grey,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
                     ),
                   ],
                 ),

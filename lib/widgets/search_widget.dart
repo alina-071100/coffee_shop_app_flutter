@@ -3,9 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 
 class SearchWidget extends StatelessWidget {
-  const SearchWidget({
-    super.key,
-  });
+  void Function(String)? onChanged;
+  SearchWidget({super.key, this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +15,14 @@ class SearchWidget extends StatelessWidget {
         color: Color(0xFF313131),
       ),
       child: TextField(
+        onChanged: (value) {
+          onChanged?.call(value);
+        },
+        style: GoogleFonts.aBeeZee(
+            color: Colors.white, decoration: TextDecoration.none),
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.only(top: 15),
-          prefixIcon: const  Icon(
+          prefixIcon: const Icon(
             Iconsax.search_normal_1,
             color: Colors.white,
           ),

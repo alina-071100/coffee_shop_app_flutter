@@ -7,6 +7,7 @@ import 'package:coffee_shop_app/screens/coffee_detail.dart';
 import 'package:coffee_shop_app/theme/app_theme.dart';
 import 'package:coffee_shop_app/widgets/banner_card.dart';
 import 'package:coffee_shop_app/widgets/search_widget.dart';
+import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -99,7 +100,7 @@ class _MenuPageState extends State<MenuPage> {
                     const SizedBox(
                       height: 30,
                     ),
-                    const SearchWidget(),
+                     SearchWidget(onChanged: myType.searchCoffee),
                     const SizedBox(
                       height: 24,
                     ),
@@ -118,93 +119,232 @@ class _MenuPageState extends State<MenuPage> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 50,
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            "Cappuccino",
-                            "Machiato",
-                            "Latte",
-                            "Americano"
-                          ]
-                              .asMap()
-                              .map(
-                                (key, value) => MapEntry(
-                                  key,
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 4),
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          selected = key;
-                                        });
-                                      },
-                                      child: Container(
-                                        height: 38,
-                                        decoration: BoxDecoration(
-                                          color: selected == key
-                                              ? AppTheme.buttonColor
-                                              : AppTheme.button2Color,
-                                          borderRadius:
-                                              BorderRadius.circular(12),
-                                        ),
-                                        child: Center(
-                                          child: Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 20),
-                                            child: Text(value,
-                                                style: GoogleFonts.sora(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w600,
-                                                  color: selected == key
-                                                      ? AppTheme.button2Color
-                                                      : AppTheme
-                                                          .switchTextColor,
-                                                )),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              )
-                              .values
-                              .toList(),
+                    Container(
+                      height: size.height*0.4,
+                      child: ContainedTabBarView(
+                        tabBarViewProperties: TabBarViewProperties(),
+                        tabs: [
+                          Text('Cappuccino'),
+                          Text('Machiato'),
+                          Text('Latte'),
+                          Text('Americano'),
+                        ],
+                        tabBarProperties: TabBarProperties(
+                          labelStyle: GoogleFonts.sora(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          isScrollable: true,
+                          labelPadding: EdgeInsets.symmetric(horizontal: 20),
+                          padding: const EdgeInsets.symmetric(
+                            // horizontal: 32.0,
+                            vertical: 8.0,
+                          ),
+                          indicator: ContainerTabIndicator(
+                              height: 38,
+                              radius: BorderRadius.circular(12.0),
+                              color: AppTheme.buttonColor),
+                          labelColor: Colors.white,
+                          unselectedLabelColor: AppTheme.switchTextColor,
                         ),
+                        views: [
+                          Container(
+                              //    width: 340,
+                              color: AppTheme.backgroundColor2,
+                              // height: 315,
+                              child: GridView.builder(
+                                  itemCount: myType.addTestCoffee.length,
+                                  // coffeeList.length,
+                                  gridDelegate:
+                                      const SliverGridDelegateWithMaxCrossAxisExtent(
+                                          maxCrossAxisExtent: 200,
+                                          crossAxisSpacing: 16,
+                                          mainAxisSpacing: 20,
+                                          childAspectRatio: 0.60),
+                                  itemBuilder: (context, index) {
+                                    CoffeeModel coffee = myType.addTestCoffee[index];
+                                    return InkWell(
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  DetailPage(coffee: coffee),
+                                            ),
+                                          );
+                                        },
+                                        child: singleCoffee(coffee, context));
+                                  })),
+                          Container(
+                              //    width: 340,
+                              color: Color.fromARGB(255, 42, 76, 139),
+                              // height: 315,
+                              child: GridView.builder(
+                                  itemCount: coffeeList.length,
+                                  gridDelegate:
+                                      const SliverGridDelegateWithMaxCrossAxisExtent(
+                                          maxCrossAxisExtent: 200,
+                                          crossAxisSpacing: 16,
+                                          mainAxisSpacing: 20,
+                                          childAspectRatio: 0.60),
+                                  itemBuilder: (context, index) {
+                                    CoffeeModel coffee = coffeeList[index];
+                                    return InkWell(
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  DetailPage(coffee: coffee),
+                                            ),
+                                          );
+                                        },
+                                        child: singleCoffee(coffee, context));
+                                  })),
+                          Container(
+                              //    width: 340,
+                              color: Color.fromARGB(255, 86, 64, 151),
+                              // height: 315,
+                              child: GridView.builder(
+                                  itemCount: coffeeList.length,
+                                  gridDelegate:
+                                      const SliverGridDelegateWithMaxCrossAxisExtent(
+                                          maxCrossAxisExtent: 200,
+                                          crossAxisSpacing: 16,
+                                          mainAxisSpacing: 20,
+                                          childAspectRatio: 0.60),
+                                  itemBuilder: (context, index) {
+                                    CoffeeModel coffee = coffeeList[index];
+                                    return InkWell(
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  DetailPage(coffee: coffee),
+                                            ),
+                                          );
+                                        },
+                                        child: singleCoffee(coffee, context));
+                                  })),
+                          Container(
+                              //    width: 340,
+                              color: const Color.fromARGB(255, 184, 86, 86),
+                              // height: 315,
+                              child: GridView.builder(
+                                  itemCount: coffeeList.length,
+                                  gridDelegate:
+                                      const SliverGridDelegateWithMaxCrossAxisExtent(
+                                          maxCrossAxisExtent: 200,
+                                          crossAxisSpacing: 16,
+                                          mainAxisSpacing: 20,
+                                          childAspectRatio: 0.60),
+                                  itemBuilder: (context, index) {
+                                    CoffeeModel coffee = coffeeList[index];
+                                    return InkWell(
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  DetailPage(coffee: coffee),
+                                            ),
+                                          );
+                                        },
+                                        child: singleCoffee(coffee, context));
+                                  })),
+                        
+                        ],
+                        onChange: (index) => print(index),
                       ),
                     ),
-                    const SizedBox(
-                      height: 24,
-                    ),
-                    Container(
-                        //    width: 340,
-                        color: AppTheme.backgroundColor2,
-                        height: 315,
-                        child: GridView.builder(
-                            itemCount: coffeeList.length,
-                            gridDelegate:
-                                const SliverGridDelegateWithMaxCrossAxisExtent(
-                                    maxCrossAxisExtent: 200,
-                                    crossAxisSpacing: 16,
-                                    mainAxisSpacing: 20,
-                                    childAspectRatio: 0.60),
-                            itemBuilder: (context, index) {
-                              CoffeeModel coffee = coffeeList[index];
-                              return InkWell(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            DetailPage(coffee: coffee),
-                                      ),
-                                    );
-                                  },
-                                  child: singleCoffee(coffee, context));
-                            }))
+                    // SizedBox(
+                    //   height: 50,
+                    //   child: SingleChildScrollView(
+                    //     scrollDirection: Axis.horizontal,
+                    //     child: Row(
+                    //       children: [
+                    //         "Cappuccino",
+                    //         "Machiato",
+                    //         "Latte",
+                    //         "Americano"
+                    //       ]
+                    //           .asMap()
+                    //           .map(
+                    //             (key, value) => MapEntry(
+                    //               key,
+                    //               Padding(
+                    //                 padding: const EdgeInsets.symmetric(
+                    //                     horizontal: 4),
+                    //                 child: GestureDetector(
+                    //                   onTap: () {
+                    //                     setState(() {
+                    //                       selected = key;
+                    //                     });
+                    //                   },
+                    //                   child: Container(
+                    //                     height: 38,
+                    //                     decoration: BoxDecoration(
+                    //                       color: selected == key
+                    //                           ? AppTheme.buttonColor
+                    //                           : AppTheme.button2Color,
+                    //                       borderRadius:
+                    //                           BorderRadius.circular(12),
+                    //                     ),
+                    //                     child: Center(
+                    //                       child: Padding(
+                    //                         padding: const EdgeInsets.symmetric(
+                    //                             horizontal: 20),
+                    //                         child: Text(value,
+                    //                             style: GoogleFonts.sora(
+                    //                               fontSize: 14,
+                    //                               fontWeight: FontWeight.w600,
+                    //                               color: selected == key
+                    //                                   ? AppTheme.button2Color
+                    //                                   : AppTheme
+                    //                                       .switchTextColor,
+                    //                             )),
+                    //                       ),
+                    //                     ),
+                    //                   ),
+                    //                 ),
+                    //               ),
+                    //             ),
+                    //           )
+                    //           .values
+                    //           .toList(),
+                    //     ),
+                    //   ),
+                    // ),
+                    // const SizedBox(
+                    //   height: 24,
+                    // ),
+                    // Container(
+                    //     //    width: 340,
+                    //     color: AppTheme.backgroundColor2,
+                    //     height: 315,
+                    //     child: GridView.builder(
+                    //         itemCount: coffeeList.length,
+                    //         gridDelegate:
+                    //             const SliverGridDelegateWithMaxCrossAxisExtent(
+                    //                 maxCrossAxisExtent: 200,
+                    //                 crossAxisSpacing: 16,
+                    //                 mainAxisSpacing: 20,
+                    //                 childAspectRatio: 0.60),
+                    //         itemBuilder: (context, index) {
+                    //           CoffeeModel coffee = coffeeList[index];
+                    //           return InkWell(
+                    //               onTap: () {
+                    //                 Navigator.push(
+                    //                   context,
+                    //                   MaterialPageRoute(
+                    //                     builder: (context) =>
+                    //                         DetailPage(coffee: coffee),
+                    //                   ),
+                    //                 );
+                    //               },
+                    //               child: singleCoffee(coffee, context));
+                    //         }))
                   ]),
                 ),
               ]),
@@ -288,6 +428,8 @@ class _MenuPageState extends State<MenuPage> {
               Text(
                 coffee.coffeeWith,
                 style: AppTheme.coffeeWithText,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
               ),
               const SizedBox(
                 height: 12,
@@ -304,22 +446,21 @@ class _MenuPageState extends State<MenuPage> {
                     child: CupertinoButton(
                       onPressed: () {
                         // if (coffee != null && coffee.isAvailable == true) {
-                          cont.read<MenuPageProvider>().addItemBag(coffee);
-                          // ScaffoldMessenger.of(context).showSnackBar(
-                          //   SnackBar(
-                          //     backgroundColor: Colors.grey.withOpacity(0.8),
-                          //     content: const Text(
-                          //       "Item added!",
-                          //       style: TextStyle(
-                          //         color: Colors.black,
-                          //       ),
-                          //     ),
-                          //     behavior: SnackBarBehavior.floating,
-                          //     margin: EdgeInsets.only(top: 16, right: 16),
-                          //   ),
-                          // );
-                        },
-                      
+                        cont.read<MenuPageProvider>().addItemBag(coffee);
+                        // ScaffoldMessenger.of(context).showSnackBar(
+                        //   SnackBar(
+                        //     backgroundColor: Colors.grey.withOpacity(0.8),
+                        //     content: const Text(
+                        //       "Item added!",
+                        //       style: TextStyle(
+                        //         color: Colors.black,
+                        //       ),
+                        //     ),
+                        //     behavior: SnackBarBehavior.floating,
+                        //     margin: EdgeInsets.only(top: 16, right: 16),
+                        //   ),
+                        // );
+                      },
                       color: AppTheme.buttonColor,
                       padding: EdgeInsets.zero,
                       borderRadius: BorderRadius.circular(10),

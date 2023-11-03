@@ -1,9 +1,10 @@
+import 'package:coffee_shop_app/data/coffee_data.dart';
 import 'package:coffee_shop_app/models/coffee_models.dart';
 import 'package:flutter/foundation.dart';
 
 class MenuPageProvider with ChangeNotifier {
   List<CoffeeModel> addCoffee = [];
-  List<CoffeeModel> addTestCoffee = [];
+  List<CoffeeModel> addTestCoffee = List.from(coffeeList);
   int count = 0;
   double price = 0;
 
@@ -71,9 +72,20 @@ class MenuPageProvider with ChangeNotifier {
 
   List<CoffeeModel> get shoppingCart => addCoffee;
 
-    double get deliveryCharge => 1.0;
-      double get coffeeSubTotal => total();
+  double get deliveryCharge => 1.0;
+  double get coffeeSubTotal => total();
 
   double get coffeeTotal => coffeeSubTotal + deliveryCharge;
 
+  void searchCoffee(String value) {
+    print(value);
+    final temp = coffeeList.where((element) {
+       print(value);
+      final name = element.coffeeWith.toLowerCase();
+      final val = value.toLowerCase();
+      return name.contains(value);
+    }).toList();
+    addTestCoffee=temp;
+    notifyListeners();
+  }
 }

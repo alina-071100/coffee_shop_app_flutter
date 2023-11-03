@@ -29,6 +29,7 @@ class _DetailPageState extends State<DetailPage> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 251, 249, 249),
       resizeToAvoidBottomInset: false,
@@ -36,7 +37,7 @@ class _DetailPageState extends State<DetailPage> {
         decoration: BoxDecoration(
             color: AppTheme.button2Color,
             borderRadius: BorderRadius.circular(24)),
-        height: 121,
+        height: size.height * 0.13,
         width: MediaQuery.of(context).size.width,
         child: Padding(
           padding: const EdgeInsets.only(left: 30, right: 30),
@@ -105,13 +106,15 @@ class _DetailPageState extends State<DetailPage> {
                   ),
                 );
               },
-              functionLikeIcon: () {},
+              functionLikeIcon: () {
+              
+              },
             ),
             Padding(
               padding: const EdgeInsets.only(top: 25),
               child: Container(
                 // width: 315,
-                height: 226,
+                height: size.height * 0.25,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     image: DecorationImage(
@@ -148,7 +151,7 @@ class _DetailPageState extends State<DetailPage> {
                         children: [
                           const Icon(
                             Icons.star_rounded,
-                            color:AppTheme.starColor,
+                            color: AppTheme.starColor,
                             size: 30,
                           ),
                           const SizedBox(
@@ -156,11 +159,11 @@ class _DetailPageState extends State<DetailPage> {
                           ),
                           Text(
                             widget.coffee.rate.toString(),
-                            style:AppTheme.largeText,
+                            style: AppTheme.largeText,
                           ),
                           Text(
                             " (230)",
-                            style:AppTheme.coffeeWithText,
+                            style: AppTheme.coffeeWithText,
                           ),
                         ],
                       ),
@@ -202,8 +205,8 @@ class _DetailPageState extends State<DetailPage> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: size.height * 0.01,
             ),
             const Center(
               child: Padding(
@@ -214,15 +217,15 @@ class _DetailPageState extends State<DetailPage> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: size.height * 0.01,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "Description",
-                  style:AppTheme.largeText,
+                  style: AppTheme.largeText,
                 ),
                 const SizedBox(
                   height: 12,
@@ -233,14 +236,14 @@ class _DetailPageState extends State<DetailPage> {
                     child: ReadMoreText(
                       widget.coffee.description.toString(),
 
-                      style:AppTheme.readeMoreText,
+                      style: AppTheme.readeMoreText,
                       trimMode: TrimMode.Line,
                       moreStyle: const TextStyle(
-                          color:AppTheme.buttonColor,
+                          color: AppTheme.buttonColor,
                           fontWeight: FontWeight.bold),
 
                       lessStyle: const TextStyle(
-                          color:AppTheme.buttonColor,
+                          color: AppTheme.buttonColor,
                           fontWeight: FontWeight.bold),
                       trimLines: 3,
                       trimCollapsedText: "Read More",
@@ -311,12 +314,9 @@ class SizeChoiseView extends StatelessWidget {
       padding: EdgeInsets.only(left: index != 0 ? 12 : 0),
       child: CustomFilledButton(
         height: 43,
-        color: selected == false
-            ? AppTheme.textColor
-            : const Color(0xFFFFF5EE),
-        borderColor: selected == false
-            ? const Color(0xFFDEDEDE)
-            : AppTheme.buttonColor,
+        color: selected == false ? AppTheme.textColor : const Color(0xFFFFF5EE),
+        borderColor:
+            selected == false ? const Color(0xFFDEDEDE) : AppTheme.buttonColor,
         child: Text(
           size ?? "",
           style: GoogleFonts.sora(
