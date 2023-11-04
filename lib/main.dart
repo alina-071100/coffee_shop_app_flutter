@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 
 import 'provider/menu_page_provider.dart';
 
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 

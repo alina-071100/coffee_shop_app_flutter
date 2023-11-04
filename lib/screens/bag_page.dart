@@ -219,33 +219,14 @@ class _BagPageState extends State<BagPage> {
               ),
             ),
             SizedBox(
-              width: 6,
+              width: 10,
             ),
-            // InkWell(
-            //   onTap: () {
-            //     // count--;
-            //     cont.read<MenuPageProvider>().deletedItem(coffee);
-            //   },
-            //   child: Container(
-            //     height: 30,
-            //     width: 30,
-            //     decoration: BoxDecoration(
-            //         shape: BoxShape.circle,
-            //         border:
-            //             Border.all(color: Color.fromARGB(255, 183, 181, 181))),
-            //     child: Icon(
-            //       Iconsax.trash,
-            //       size: 20,
-            //     ),
-            //   ),
-            // ),
-
             GestureDetector(
               onTap: () {
                 cont.read<MenuPageProvider>().deletedItem(coffee);
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
-                    backgroundColor: Color.fromARGB(255, 247, 247, 247),
+                    backgroundColor: Color.fromARGB(255, 122, 14, 14),
                     content: Text(
                       "Item removed!",
                       style: TextStyle(color: Colors.black),
@@ -259,10 +240,60 @@ class _BagPageState extends State<BagPage> {
                 child: const Icon(
                   Iconsax.trash,
                   color: Colors.redAccent,
-                  size: 14,
+                  size: 15,
                 ),
               ),
             ),
+            //   child: Icon(
+            //     Iconsax.add,
+            //     size: 25,
+            //   ),
+            // ),
+            // SizedBox(
+            //   width: 6,
+            // ),
+            // // InkWell(
+            // //   onTap: () {
+            // //     // count--;
+            // //     cont.read<MenuPageProvider>().deletedItem(coffee);
+            // //   },
+            // //   child: Container(
+            // //     height: 30,
+            // //     width: 30,
+            // //     decoration: BoxDecoration(
+            // //         shape: BoxShape.circle,
+            // //         border:
+            // //             Border.all(color: Color.fromARGB(255, 183, 181, 181))),
+            // //     child: Icon(
+            // //       Iconsax.trash,
+            // //       size: 20,
+            // //     ),
+            // //   ),
+            // // ),
+
+            // GestureDetector(
+            //   onTap: () {
+            //     cont.read<MenuPageProvider>().deletedItem(coffee);
+            //     ScaffoldMessenger.of(context).showSnackBar(
+            //       const SnackBar(
+            //         backgroundColor: Color.fromARGB(255, 247, 247, 247),
+            //         content: Text(
+            //           "Item removed!",
+            //           style: TextStyle(color: Colors.black),
+            //         ),
+            //       ),
+            //     );
+            //   },
+            //   child: CircleAvatar(
+            //     backgroundColor: Colors.redAccent.withOpacity(0.07),
+            //     radius: 18,
+            //     child: const Icon(
+            //       Iconsax.trash,
+            //       color: Colors.redAccent,
+            //       size: 14,
+            //     ),
+            //   ),
+            // ),
             // SizedBox(
             //   width: 1,
             // ),

@@ -72,7 +72,7 @@ class AppTheme {
 
   static TextStyle coffeePriceText = GoogleFonts.sora(
     fontWeight: FontWeight.w600,
-    color: const Color(0xFF2F4B4E),
+    color: Color(0xFF2F4B4E),
     fontSize: 18,
   );
 

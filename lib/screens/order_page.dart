@@ -667,16 +667,21 @@ class _OrderPageState extends State<OrderPage> {
                 children: [
                   Text(
                     coffee?.name ?? "",
-                    style: AppTheme.largeText.copyWith(fontSize: 20),
+                    style: AppTheme.largeText.copyWith(fontSize: 15),
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width / 2.7,
                     child: Text(
                       coffee?.coffeeWith ?? "",
                       style: AppTheme.coffeeWithText
-                          .copyWith(fontSize: 15)
+                          .copyWith(fontSize: 12)
                           .copyWith(overflow: TextOverflow.ellipsis),
                     ),
+                  ),
+                  Text(
+                    "\$ ${coffee.priceItems} ",
+                    style: AppTheme.coffeeWithText
+                        .copyWith(fontSize: 12, color: Colors.black),
                   ),
                   // Text(
                   //   "\$ ${coffee.priceItems} ",
@@ -713,24 +718,48 @@ class _OrderPageState extends State<OrderPage> {
             SizedBox(
               width: 10,
             ),
-            InkWell(
+            GestureDetector(
               onTap: () {
-                // count--;
                 cont.read<MenuPageProvider>().deletedItem(coffee);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    backgroundColor: Color.fromARGB(255, 228, 225, 225),
+                    content: Text(
+                      "Item removed!",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
+                );
               },
-              child: Container(
-                height: 30,
-                width: 30,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border:
-                        Border.all(color: Color.fromARGB(255, 183, 181, 181))),
-                child: Icon(
+              child: CircleAvatar(
+                backgroundColor: Colors.redAccent.withOpacity(0.07),
+                radius: 18,
+                child: const Icon(
                   Iconsax.trash,
-                  size: 20,
+                  color: Colors.redAccent,
+                  size: 14,
                 ),
               ),
             ),
+            // InkWell(
+            //   onTap: () {
+            //     // count--;
+            //     cont.read<MenuPageProvider>().deletedItem(coffee);
+            //   },
+
+            //   child: Container(
+            //     height: 30,
+            //     width: 30,
+            //     decoration: BoxDecoration(
+            //         shape: BoxShape.circle,
+            //         border:
+            //             Border.all(color: Color.fromARGB(255, 183, 181, 181))),
+            //     child: Icon(
+            //       Iconsax.trash,
+            //       size: 20,
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ]),

@@ -106,9 +106,7 @@ class _DetailPageState extends State<DetailPage> {
                   ),
                 );
               },
-              functionLikeIcon: () {
-              
-              },
+              functionLikeIcon: () {},
             ),
             Padding(
               padding: const EdgeInsets.only(top: 25),
@@ -136,6 +134,8 @@ class _DetailPageState extends State<DetailPage> {
                       Text(
                         widget.coffee.name,
                         style: AppTheme.coffeeNameText,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
                       ),
                       const SizedBox(
                         height: 8,
@@ -143,6 +143,8 @@ class _DetailPageState extends State<DetailPage> {
                       Text(
                         widget.coffee.coffeeWith,
                         style: AppTheme.coffeeWithText,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
                       ),
                       const SizedBox(
                         height: 16,
@@ -177,7 +179,7 @@ class _DetailPageState extends State<DetailPage> {
                         width: 44,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(14),
-                          color: const Color(0xFFF9F9F9),
+                          color: Color.fromARGB(255, 239, 238, 238),
                         ),
                         child: Image.asset(
                           "assets/images/coffee-bean.png",
@@ -193,7 +195,7 @@ class _DetailPageState extends State<DetailPage> {
                         width: 44,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(14),
-                          color: const Color(0xFFF9F9F9),
+                          color: Color.fromARGB(255, 239, 238, 238),
                         ),
                         child: Image.asset(
                           "assets/images/packaging.png",
