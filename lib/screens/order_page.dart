@@ -3,6 +3,7 @@ import 'package:coffee_shop_app/provider/menu_page_provider.dart';
 import 'package:coffee_shop_app/screens/card/credit_card_page.dart';
 import 'package:coffee_shop_app/theme/app_theme.dart';
 import 'package:coffee_shop_app/widgets/custom_filledbutton.dart';
+import 'package:coffee_shop_app/widgets/type_toggle.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
@@ -114,7 +115,7 @@ class _OrderPageState extends State<OrderPage> {
                                   child: Container(
                                     child: Center(
                                       child: Text(
-                                        "\$ ${myType.deliveryCharge}",
+                                        "\$ ${myType.coffeeTotal}",
                                         style: GoogleFonts.sora(
                                           fontSize: 12,
                                           fontWeight: FontWeight.w400,
@@ -179,296 +180,192 @@ class _OrderPageState extends State<OrderPage> {
               children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                  child: Column(
-                    children: [
-                      // CustomAppBar(
-                      //   title: "Order",
-                      //   functionBackIcon: () {
-                      //     Navigator.pop(context);
-                      //   },
-                      // ),
-                      Column(
-                        children: [
-                          const SizedBox(
-                            height: 25,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(14),
-                                color: const Color(0xFFF2F2F2)),
-                            height: 50,
-                            // width: 315,
+                  child: Center(
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 25,
+                        ),
 
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 4.0),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    child: Container(
-                                      child: Center(
-                                        child: Text(
-                                          "Deliver",
-                                          style: GoogleFonts.sora(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w600,
-                                            color: Color(0xFFFFFFFF),
-                                          ),
-                                        ),
-                                      ),
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          color: AppTheme.buttonColor),
-                                      height: 42,
+                        TypeToggle(),
+
+                        // Container(
+                        //   decoration: BoxDecoration(
+                        //       borderRadius: BorderRadius.circular(14),
+                        //       color: const Color(0xFFF2F2F2)),
+                        //   height: 50,
+                        //   // width: 315,
+
+                        //   child: Padding(
+                        //     padding:
+                        //         const EdgeInsets.symmetric(horizontal: 4.0),
+                        //     child: Row(
+                        //       children: [
+
+                        //         // Expanded(
+                        //         //   child: Container(
+                        //         //     child: Center(
+                        //         //       child: Text(
+                        //         //         "Deliver",
+                        //         //         style: GoogleFonts.sora(
+                        //         //           fontSize: 16,
+                        //         //           fontWeight: FontWeight.w600,
+                        //         //           color: Color(0xFFFFFFFF),
+                        //         //         ),
+                        //         //       ),
+                        //         //     ),
+                        //         //     decoration: BoxDecoration(
+                        //         //         borderRadius:
+                        //         //             BorderRadius.circular(10),
+                        //         //         color: AppTheme.buttonColor),
+                        //         //     height: 42,
+                        //         //   ),
+                        //         // ),
+                        //         // Expanded(
+                        //         //   child: Container(
+                        //         //     child: Center(
+                        //         //       child: Text(
+                        //         //         "Pick Up",
+                        //         //         style: AppTheme.largeText,
+                        //         //       ),
+                        //         //     ),
+                        //         //     decoration: BoxDecoration(
+                        //         //         borderRadius:
+                        //         //             BorderRadius.circular(10),
+                        //         //         color: Color(0xFFF2F2F2)),
+                        //         //     height: 42,
+                        //         //   ),
+                        //         // ),
+                        //       ],
+                        //     ),
+                        //   ),
+
+                        // ),
+                        SizedBox(
+                          height: 24,
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Delivery Address",
+                                      style: AppTheme.largeText,
                                     ),
-                                  ),
-                                  Expanded(
-                                    child: Container(
-                                      child: Center(
-                                        child: Text(
-                                          "Pick Up",
-                                          style: AppTheme.largeText,
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 16),
+                                      child: Text(
+                                        "Jl. Kpg Sutoyo",
+                                        style: GoogleFonts.sora(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w600,
+                                          color: Color(0xFF303336),
                                         ),
                                       ),
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          color: Color(0xFFF2F2F2)),
-                                      height: 42,
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 24,
-                          ),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Container(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Delivery Address",
-                                        style: AppTheme.largeText,
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8.0),
+                                      child: Text(
+                                        "Kpg. Sutoyo No. 620, Bilzen, Tanjungbalai.",
+                                        style: AppTheme.subtileLarge,
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 16),
-                                        child: Text(
-                                          "Jl. Kpg Sutoyo",
-                                          style: GoogleFonts.sora(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                            color: Color(0xFF303336),
+                                    ),
+                                    const SizedBox(
+                                      height: 16,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          child: Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 12),
+                                            child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Icon(
+                                                    Iconsax.edit,
+                                                    size: 14,
+                                                    color: Colors.black,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 4,
+                                                  ),
+                                                  Text(
+                                                    "Edit Address",
+                                                    style:
+                                                        AppTheme.subtileLarge,
+                                                  )
+                                                ]),
                                           ),
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(16),
+                                              color: Color(0xFFFFFFFF),
+                                              border: Border.all(
+                                                  color: Color(0xFFDEDEDE))),
+                                          height: 27,
                                         ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 8.0),
-                                        child: Text(
-                                          "Kpg. Sutoyo No. 620, Bilzen, Tanjungbalai.",
-                                          style: AppTheme.subtileLarge,
+                                        SizedBox(
+                                          width: 8,
                                         ),
-                                      ),
-                                      const SizedBox(
-                                        height: 16,
-                                      ),
-                                      Row(
-                                        children: [
-                                          Container(
-                                            child: Padding(
-                                              padding: EdgeInsets.symmetric(
-                                                  horizontal: 12),
-                                              child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Icon(
-                                                      Iconsax.edit,
-                                                      size: 14,
-                                                      color: Colors.black,
-                                                    ),
-                                                    SizedBox(
-                                                      width: 4,
-                                                    ),
-                                                    Text(
-                                                      "Edit Address",
-                                                      style:
-                                                          AppTheme.subtileLarge,
-                                                    )
-                                                  ]),
-                                            ),
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(16),
-                                                color: Color(0xFFFFFFFF),
-                                                border: Border.all(
-                                                    color: Color(0xFFDEDEDE))),
-                                            height: 27,
+                                        Container(
+                                          child: Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 12),
+                                            child: Row(
+                                                // mainAxisAlignment:
+                                                //     MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  Icon(
+                                                    Iconsax.note_1,
+                                                    size: 14,
+                                                  ),
+                                                  Text(
+                                                    "  Add Note",
+                                                    style:
+                                                        AppTheme.subtileLarge,
+                                                  )
+                                                ]),
                                           ),
-                                          SizedBox(
-                                            width: 8,
-                                          ),
-                                          Container(
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 12),
-                                              child: Row(
-                                                  // mainAxisAlignment:
-                                                  //     MainAxisAlignment.spaceBetween,
-                                                  children: [
-                                                    Icon(
-                                                      Iconsax.note_1,
-                                                      size: 14,
-                                                    ),
-                                                    Text(
-                                                      "  Add Note",
-                                                      style:
-                                                          AppTheme.subtileLarge,
-                                                    )
-                                                  ]),
-                                            ),
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(16),
-                                                color: Color(0xFFFFFFFF),
-                                                border: Border.all(
-                                                    color: Color(0xFFDEDEDE))),
-                                            height: 27,
-                                          )
-                                        ],
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(16),
+                                              color: Color(0xFFFFFFFF),
+                                              border: Border.all(
+                                                  color: Color(0xFFDEDEDE))),
+                                          height: 27,
+                                        )
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 20, bottom: 20),
+                                      child: Divider(
+                                        height: 1,
+                                        thickness: 1,
+                                        color: Color(0xFFEAEAEA),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 20, bottom: 20),
-                                        child: Divider(
-                                          height: 1,
-                                          thickness: 1,
-                                          color: Color(0xFFEAEAEA),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                            ],
-                          ),
-                          ...List.generate(
-                              myType.addCoffee.length,
-                              (index) => Padding(
-                                    padding: EdgeInsets.only(bottom: 10),
-                                    child: singleCoffee(
-                                        myType.addCoffee[index], context),
-                                  )),
-
-                          // SizedBox(
-                          //   height: 54,
-                          //   child: Row(
-                          //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          //       children: [
-                          //         Row(
-                          //           children: [
-                          //             if (widget.coffee?.image != null)
-                          //               Container(
-                          //                 width: 54,
-                          //                 height: 54,
-                          //                 decoration: BoxDecoration(
-                          //                     borderRadius: BorderRadius.circular(12),
-                          //                     image: DecorationImage(
-                          //                         image: AssetImage(widget.coffee!.image),
-                          //                         fit: BoxFit.cover)),
-                          //               ),
-                          //            const SizedBox(
-                          //               width: 12,
-                          //             ),
-                          //             Column(
-                          //               crossAxisAlignment: CrossAxisAlignment.start,
-                          //               mainAxisAlignment: MainAxisAlignment.center,
-                          //               children: [
-                          //                 Text(
-                          //                   widget.coffee?.name ?? "",
-                          //                                                               style:AppTheme.largeText,
-
-                          //                 ),
-                          //                 SizedBox(
-                          //                   height: 4,
-                          //                 ),
-                          //                 Text(
-                          //                   widget.coffee?.coffeeWith ?? "",
-                          //                                                              style:AppTheme.coffeeWithText,
-
-                          //                 ),
-                          //               ],
-                          //             ),
-                          //           ],
-                          //         ),
-                          //         Row(
-                          //           children: [
-                          //             InkWell(
-                          //               onTap: count > 1
-                          //                   ? () {
-                          //                       count--;
-                          //                       setState(() {});
-                          //                     }
-                          //                   : null,
-                          //               child: Container(
-                          //                 height: 28,
-                          //                 width: 28,
-                          //                 decoration: BoxDecoration(
-                          //                     shape: BoxShape.circle,
-                          //                     border:
-                          //                         Border.all(color: Color(0xFFEAEAEA))),
-                          //                 child: Icon(
-                          //                   Iconsax.minus,
-                          //                   size: 16,
-                          //                 ),
-                          //               ),
-                          //             ),
-                          //             Padding(
-                          //               padding: const EdgeInsets.all(8.0),
-                          //               child: Text(
-                          //                 "$count",
-                          //                 style: GoogleFonts.sora(
-                          //                   fontSize: 14,
-                          //                   fontWeight: FontWeight.w600,
-                          //                   color: Color(0xFF2F2D2C),
-                          //                 ),
-                          //               ),
-                          //             ),
-                          //             InkWell(
-                          //               onTap: () {
-                          //                 count++;
-                          //                 setState(() {});
-                          //               },
-                          //               child: Container(
-                          //                 height: 28,
-                          //                 width: 28,
-                          //                 decoration: BoxDecoration(
-                          //                     shape: BoxShape.circle,
-                          //                     border:
-                          //                         Border.all(color: Color(0xFFEAEAEA))),
-                          //                 child: Icon(
-                          //                   Iconsax.add,
-                          //                   size: 16,
-                          //                   color: Colors.black,
-                          //                 ),
-                          //               ),
-                          //             )
-                          //           ],
-                          //         ),
-                          //       ]),
-                          // ),
-                        ],
-                      ),
-                    ],
+                            ),
+                          ],
+                        ),
+                        ...List.generate(
+                            myType.addCoffee.length,
+                            (index) => Padding(
+                                  padding: EdgeInsets.only(bottom: 10),
+                                  child: singleCoffee(
+                                      myType.addCoffee[index], context),
+                                )),
+                      ],
+                    ),
                   ),
                 ),
                 Padding(
