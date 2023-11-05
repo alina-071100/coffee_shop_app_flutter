@@ -8,10 +8,12 @@ class CustomAppBar extends StatefulWidget {
   IconData? suffixIcon;
   void Function()? functionBackIcon;
   void Function()? functionLikeIcon;
+  Icon? icon;
   CustomAppBar(
       {super.key,
       this.title,
       this.suffixIcon,
+      this.icon,
       this.functionBackIcon,
       this.functionLikeIcon});
 
@@ -21,6 +23,12 @@ class CustomAppBar extends StatefulWidget {
 
 class _CustomAppBarState extends State<CustomAppBar> {
   bool isFavorited = false;
+
+  void toggleLike() {
+    setState(() {
+      isFavorited = !isFavorited;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,11 +62,12 @@ class _CustomAppBarState extends State<CustomAppBar> {
           widget.suffixIcon != null
               ? InkWell(
                   onTap: widget.functionLikeIcon,
-                  child: Icon(
-                    widget.suffixIcon ?? Icons.favorite,
-                    color: Color.fromARGB(255, 22, 22, 22),
-                    size: 24,
-                  ),
+                  child: widget.icon ??
+                      Icon(
+                        widget.suffixIcon ?? Icons.favorite,
+                        color: Color.fromARGB(255, 22, 22, 22),
+                        size: 24,
+                      ),
                 )
               : const SizedBox(
                   width: 24,

@@ -1,14 +1,14 @@
 import 'package:coffee_shop_app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 
-class TestTest extends StatefulWidget {
-  const TestTest({super.key});
+class NavigatorWidget extends StatefulWidget {
+  const NavigatorWidget({super.key});
 
   @override
-  State<TestTest> createState() => _TestTestState();
+  State<NavigatorWidget> createState() => _NavigatorState();
 }
 
-class _TestTestState extends State<TestTest> {
+class _NavigatorState extends State<NavigatorWidget> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

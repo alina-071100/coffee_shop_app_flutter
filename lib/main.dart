@@ -1,3 +1,4 @@
+import 'package:coffee_shop_app/provider/favorit_page_provider.dart';
 import 'package:coffee_shop_app/screens/home_page.dart';
 import 'package:coffee_shop_app/screens/menu_page.dart';
 import 'package:coffee_shop_app/widgets/navigation_bar.dart';
@@ -7,7 +8,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import 'provider/menu_page_provider.dart';
-
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,8 +21,8 @@ Future<void> main() async {
   runApp(
     MultiProvider(
       providers: [
-        
-        ChangeNotifierProvider(create: (context) => MenuPageProvider())
+        ChangeNotifierProvider(create: (context) => MenuPageProvider()),
+        ChangeNotifierProvider(create: (context) => FavouritListProvider())
       ],
       child: MyApp(),
     ),

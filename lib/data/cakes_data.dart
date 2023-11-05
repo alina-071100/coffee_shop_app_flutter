@@ -8,6 +8,8 @@ List<CoffeeModel> cakeList = [
     coffeeWith: "with Chocolate & Liquid ",
     price: 10,
     count: 0,
+        isFavorite: false,
+
     rate: 9.8,
     priceItems: 10,
     description:
@@ -21,6 +23,8 @@ List<CoffeeModel> cakeList = [
     coffeeWith: "with Chocolate",
     price: 12,
     priceItems: 12,
+        isFavorite: false,
+
     count: 0,
     rate: 14.9,
     description:
@@ -34,6 +38,8 @@ List<CoffeeModel> cakeList = [
     coffeeWith: "with White Chocolate ",
     price: 17,
     priceItems: 17,
+        isFavorite: false,
+
     count: 0,
     rate: 8.9,
     description:
@@ -47,6 +53,8 @@ List<CoffeeModel> cakeList = [
     coffeeWith: "with White Chocolate & Yogurt Mille",
     price: 15,
     priceItems: 15,
+        isFavorite: false,
+
     count: 0,
     rate: 5.9,
     description:
@@ -61,6 +69,8 @@ List<CoffeeModel> cakeList = [
     price: 16,
     priceItems: 16,
     count: 0,
+            isFavorite: false,
+
     rate: 8.2,
     description:
         "This rich chocolate cake hails from the Black Forest region of Germany. It’s a layered confection soaked with Kirsch (cherry liqueur), and filled with whipped cream and Morello cherry preserves.",
@@ -74,6 +84,8 @@ List<CoffeeModel> cakeList = [
     price: 18,
     priceItems: 18,
     count: 0,
+            isFavorite: false,
+
     rate: 6.6,
     description:
         "Flavored cappuccinos are very popular in the United States. Typically, flavored simple syrups are used to add the flavor of your choice. Popular flavors include vanilla, chocolate, caramel, peppermint, raspberry, and cinnamon. Sometimes, other additives (such as powdered cinnamon or cocoa, or drizzled caramel or chocolate sauce) are also added on top of the cappuccino's foam.",
@@ -86,6 +98,8 @@ List<CoffeeModel> cakeList = [
     coffeeWith: "with Chocolate",
     price: 15,
     priceItems: 15,
+            isFavorite: false,
+
     count: 0,
     rate: 16.6,
     description:
@@ -99,6 +113,8 @@ List<CoffeeModel> cakeList = [
     coffeeWith: "with Chocolate & Oreo Parfaits",
     price: 15,
     priceItems: 15,
+            isFavorite: false,
+
     count: 0,
     rate: 16.6,
     description:
@@ -112,6 +128,8 @@ List<CoffeeModel> cakeList = [
     coffeeWith: "with Chocolate & Hazelnut cream",
     price: 15,
     priceItems: 15,
+            isFavorite: false,
+
     count: 0,
     rate: 16.6,
     description:

@@ -1,13 +1,22 @@
-// import 'package:coffee_shop_app/models/coffee_models.dart';
-// import 'package:flutter/cupertino.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
+import 'package:coffee_shop_app/models/coffee_models.dart';
+import 'package:flutter/material.dart';
 
-// class FavoritePageProvider with ChangeNotifier {
-//   List<CoffeeModel> _selectedProduct = [];
+class FavouritListProvider with ChangeNotifier {
+  List<CoffeeModel> favouritList = [];
 
-//   List<CoffeeModel> get selectedProduct => _selectedProduct;
+  void addorRemove(CoffeeModel coffeitem) {
+    if (favouritList.contains(coffeitem)) {
+      favouritList.remove(coffeitem);
 
-//   void addItem(CoffeeModel product) {
-//     _selectedProduct.add(value);
-//   }
-// }
+      coffeitem.isFavorite = false;
+    } else {
+      favouritList.add(coffeitem);
+      coffeitem.isFavorite = true;
+    }
+    notifyListeners();
+  }
+
+  void update() {
+    notifyListeners();
+  }
+}

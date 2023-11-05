@@ -102,7 +102,7 @@ class _RegistrePageState extends State<RegistrePage> {
               MyButton(
                 onTap: () {
                   service.createUser(
-                      context, emailController.text, passwordController.text);
+                      context, emailController.text, passwordController.text, confirmPasswordController.text);
                 },
                 title: "Sign Up",
               ),

@@ -1,19 +1,25 @@
 import 'package:coffee_shop_app/screens/login/login_page.dart';
-import 'package:coffee_shop_app/widgets/navigator.dart';
+import 'package:coffee_shop_app/widgets/navigator_widget.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ServicFire {
   final auth = FirebaseAuth.instance;
 
-  void createUser(context, String email, String password) async {
+  void createUser(
+      context, String email, String password, String confirmPassword) async {
     try {
-      await auth
-          .createUserWithEmailAndPassword(email: email, password: password)
-          .then((value) => {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LoginPage()))
-              });
+      if (password != confirmPassword) {
+        throw Exception("Your email or password is wrong.");
+      } else {
+        await auth
+            .createUserWithEmailAndPassword(email: email, password: password)
+            .then((value) => {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LoginPage()))
+                });
+      }
     } catch (e) {
       errorBox(context, e);
     }
@@ -25,7 +31,7 @@ class ServicFire {
           .signInWithEmailAndPassword(email: email, password: password)
           .then((value) => {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const TestTest()))
+                    MaterialPageRoute(builder: (context) => const NavigatorWidget()))
               });
     } catch (e) {
       errorBox(context, e);

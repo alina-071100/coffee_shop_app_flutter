@@ -7,6 +7,8 @@ List<CoffeeModel> cheescakeList = [
     name: "Mini Baileys",
     coffeeWith: "with Chocolate Trifles",
     price: 10,
+        isFavorite: false,
+
     count: 0,
     rate: 9.8,
     priceItems: 10,
@@ -20,6 +22,8 @@ List<CoffeeModel> cheescakeList = [
     name: "Baileys Cheesecake",
     coffeeWith: "with Chocolate",
     price: 12,
+        isFavorite: false,
+
     priceItems: 12,
     count: 0,
     rate: 14.9,
@@ -35,6 +39,8 @@ List<CoffeeModel> cheescakeList = [
     price: 17,
     priceItems: 17,
     count: 0,
+        isFavorite: false,
+
     rate: 8.9,
     description:
         "A macchiato is a strong espresso that has a foamy top layer and is a favorite amongst Italians. They find it most enjoyable in the morning to get their day started right.",
@@ -49,6 +55,8 @@ List<CoffeeModel> cheescakeList = [
     priceItems: 15,
     count: 0,
     rate: 5.9,
+        isFavorite: false,
+
     description:
         "Mint Chocolate Chip is one of our favorite ice cream flavors and there’s just no resisting a bowl of Andes Mints, so I knew my family was going to go crazy for these Mint Chocolate Chip Cheesecake desserts.",
     isAvailable: true,
@@ -62,6 +70,8 @@ List<CoffeeModel> cheescakeList = [
     priceItems: 16,
     count: 0,
     rate: 8.2,
+        isFavorite: false,
+
     description:
         "Dry cappuccinos (also known as cappuccini scurro or dark cappuccinos) have less milk than the other cappuccinos. There is a little steamed milk mixed in, but there is more foamed milk layered on top of the drink. The taste of the espresso is stronger in this drink, and the liquid part of the drink is darker in color than it is in a traditional cappuccino. The milky foam on top of the drink insulates the drink, keeping it hotter longer.",
     isAvailable: true,
@@ -75,6 +85,8 @@ List<CoffeeModel> cheescakeList = [
     priceItems: 18,
     count: 0,
     rate: 6.6,
+        isFavorite: false,
+
     description:
         "Flavored cappuccinos are very popular in the United States. Typically, flavored simple syrups are used to add the flavor of your choice. Popular flavors include vanilla, chocolate, caramel, peppermint, raspberry, and cinnamon. Sometimes, other additives (such as powdered cinnamon or cocoa, or drizzled caramel or chocolate sauce) are also added on top of the cappuccino's foam.",
     isAvailable: true,
@@ -86,6 +98,8 @@ List<CoffeeModel> cheescakeList = [
     coffeeWith: " with Chocolate",
     price: 15,
     priceItems: 15,
+        isFavorite: false,
+
     count: 0,
     rate: 16.6,
     description:

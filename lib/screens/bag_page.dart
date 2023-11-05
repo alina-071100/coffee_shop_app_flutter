@@ -225,15 +225,15 @@ class _BagPageState extends State<BagPage> {
             GestureDetector(
               onTap: () {
                 cont.read<MenuPageProvider>().deletedItem(coffee);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    backgroundColor: Color.fromARGB(255, 122, 14, 14),
-                    content: Text(
-                      "Item removed!",
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ),
-                );
+                // ScaffoldMessenger.of(context).showSnackBar(
+                //   const SnackBar(
+                //     backgroundColor: Color.fromARGB(255, 122, 14, 14),
+                //     content: Text(
+                //       "Item removed!",
+                //       style: TextStyle(color: Colors.black),
+                //     ),
+                //   ),
+                // );
               },
               child: CircleAvatar(
                 backgroundColor: Colors.redAccent.withOpacity(0.07),
