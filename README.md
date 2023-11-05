@@ -1,5 +1,4 @@
 # coffee_shop_app
-![1](https://github.com/alina-071100/coffee_shop_app_flutter/assets/86889072/f3a9f1c9-daed-4db9-bbfd-1e42ee10dcf9)![2](https://github.com/alina-071100/coffee_shop_app_flutter/assets/86889072/eb5b0937-3816-4ce3-861b-2b4014594e64)
 
 
 
