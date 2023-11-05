@@ -20,6 +20,8 @@ class CustomAppBar extends StatefulWidget {
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
+  bool isFavorited = false;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -53,12 +55,12 @@ class _CustomAppBarState extends State<CustomAppBar> {
               ? InkWell(
                   onTap: widget.functionLikeIcon,
                   child: Icon(
-                    widget.suffixIcon ?? Iconsax.heart,
-                    color: Colors.black,
+                    widget.suffixIcon ?? Icons.favorite,
+                    color: Color.fromARGB(255, 22, 22, 22),
                     size: 24,
                   ),
-                ):
-               const SizedBox(
+                )
+              : const SizedBox(
                   width: 24,
                 ),
         ],

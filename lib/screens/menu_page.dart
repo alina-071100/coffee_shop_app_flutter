@@ -1,11 +1,8 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:coffee_shop_app/data/cakes_data.dart';
-import 'package:coffee_shop_app/data/chessecakes_data.dart';
-import 'package:coffee_shop_app/data/coffee_data.dart';
+
 import 'package:coffee_shop_app/models/coffee_models.dart';
 import 'package:coffee_shop_app/provider/menu_page_provider.dart';
-import 'package:coffee_shop_app/screens/bag_page.dart';
 import 'package:coffee_shop_app/screens/coffee_detail.dart';
 import 'package:coffee_shop_app/theme/app_theme.dart';
 import 'package:coffee_shop_app/widgets/banner_card.dart';
@@ -13,7 +10,6 @@ import 'package:coffee_shop_app/widgets/search_widget.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +17,7 @@ import 'package:provider/provider.dart';
 class MenuPage extends StatefulWidget {
   static const String routeName = '/menu-page';
 
-  MenuPage({super.key});
+  const MenuPage({super.key});
 
   @override
   State<MenuPage> createState() => _MenuPageState();
@@ -122,7 +118,7 @@ class _MenuPageState extends State<MenuPage> {
                         ),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                         height: size.height * 0.45,
                         // width: 300,
                         child: DefaultTabController(
@@ -130,14 +126,14 @@ class _MenuPageState extends State<MenuPage> {
                             child: Column(children: [
                               ButtonsTabBar(
                                 radius: 12,
-                                contentPadding:
+                                contentPadding:const
                                     EdgeInsets.symmetric(horizontal: 30),
                                 backgroundColor: AppTheme.buttonColor,
-                                buttonMargin:
+                                buttonMargin: const
                                     EdgeInsets.symmetric(horizontal: 8),
                                 unselectedBackgroundColor: Colors.white,
                                 unselectedLabelStyle: GoogleFonts.sora(
-                                  color: Color(0xFF2F4B4E),
+                                  color:const Color(0xFF2F4B4E),
                                   fontSize: 14,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -147,7 +143,7 @@ class _MenuPageState extends State<MenuPage> {
                                   fontWeight: FontWeight.w600,
                                 ),
                                 height: 38,
-                                tabs: [
+                                tabs: const [
                                   Tab(text: 'Coffees'),
                                   Tab(text: 'Cakes'),
                                   Tab(text: 'Cheesecakes'),
@@ -376,21 +372,7 @@ class _MenuPageState extends State<MenuPage> {
                     scale: 0.8,
                     child: CupertinoButton(
                       onPressed: () {
-                        // if (coffee != null && coffee.isAvailable == true) {
                         cont.read<MenuPageProvider>().addItemBag(coffee);
-                        // ScaffoldMessenger.of(context).showSnackBar(
-                        //   SnackBar(
-                        //     backgroundColor: Colors.grey.withOpacity(0.8),
-                        //     content: const Text(
-                        //       "Item added!",
-                        //       style: TextStyle(
-                        //         color: Colors.black,
-                        //       ),
-                        //     ),
-                        //     behavior: SnackBarBehavior.floating,
-                        //     margin: EdgeInsets.only(top: 16, right: 16),
-                        //   ),
-                        // );
                       },
                       color: AppTheme.buttonColor,
                       padding: EdgeInsets.zero,

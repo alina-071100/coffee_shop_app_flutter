@@ -3,6 +3,7 @@ import 'package:coffee_shop_app/screens/login/components/textfield.dart';
 import 'package:coffee_shop_app/screens/login/firebase_helper.dart';
 import 'package:coffee_shop_app/screens/login/forgotten_password_page.dart';
 import 'package:coffee_shop_app/screens/login/registre_page.dart';
+import 'package:coffee_shop_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -24,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: const  Color(0xFFF9F9F9),
+      backgroundColor:AppTheme.backgroundColor2,
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -36,18 +37,9 @@ class _LoginPageState extends State<LoginPage> {
                 Image.asset(
                   "assets/images/login_coffee.png",
                   height: 200,
-                  // width: 250,
                 ),
 
-                // logo
-                // const Icon(
-                //   Icons.coffee,
-                //   size: 100,
-                // ),
-
                 const SizedBox(height: 25),
-
-                // welcome back, you've been missed!
                 Text(
                   'Welcome back you\'ve been missed!',
                   style: TextStyle(
@@ -111,14 +103,14 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 25),
 
                 // or continue with
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+               const Padding(
+                  padding:  EdgeInsets.symmetric(horizontal: 25.0),
                   child: Row(
                     children: [
                       Expanded(
                         child: Divider(
                           thickness: 1,
-                          color: const Color(0xFFC67C4E),
+                          color: AppTheme.buttonColor,
                         ),
                       ),
                     ],
@@ -126,22 +118,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
 
                 const SizedBox(height: 45),
-
-                // google + apple sign in buttons
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     // google button
-                //     SquareTile(imagePath: 'assets/images/google.png'),
-
-                //     SizedBox(width: 25),
-
-                //     // apple button
-                //     SquareTile(imagePath: 'assets/images/apple.png')
-                //   ],
-                // ),
-
-                // const SizedBox(height: 40),
 
                 // not a member? register now
                 Row(
@@ -157,12 +133,12 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => RegistrePage()));
+                                builder: (context) => const RegistrePage()));
                       },
                       child: const Text(
                         'Register now',
                         style: TextStyle(
-                          color: Color(0xFFC67C4E),
+                          color: AppTheme.buttonColor,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

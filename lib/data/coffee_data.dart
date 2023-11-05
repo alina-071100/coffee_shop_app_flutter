@@ -57,7 +57,7 @@ List<CoffeeModel> coffeeList = [
   CoffeeModel(
     id: "5",
     image: 'assets/images/vanil-machh.jpg',
-    name: "Iced Vanilla Macchiato",
+    name: "Iced Vanilla Macchi",
     coffeeWith: "with Vanilla",
     price: 5.0,
     priceItems: 5.0,

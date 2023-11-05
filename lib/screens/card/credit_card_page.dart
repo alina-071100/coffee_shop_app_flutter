@@ -1,6 +1,5 @@
-import 'package:coffee_shop_app/screens/card/app_color.dart';
 import 'package:coffee_shop_app/screens/delivery_page.dart';
-import 'package:coffee_shop_app/screens/order_page.dart';
+import 'package:coffee_shop_app/theme/app_theme.dart';
 import 'package:coffee_shop_app/widgets/custom_app_bar.dart';
 import 'package:coffee_shop_app/widgets/custom_filledbutton.dart';
 import 'package:flutter/material.dart';
@@ -80,14 +79,7 @@ class MySampleState extends State<CreditCartPage> {
                   suffixIcon: isLightTheme ? Icons.light_mode : Icons.dark_mode,
                 ),
               ),
-              // IconButton(
-              //   onPressed: () => setState(() {
-              //     isLightTheme = !isLightTheme;
-              //   }),
-              //   icon: Icon(
-              //     isLightTheme ? Icons.light_mode : Icons.dark_mode,
-              //   ),
-              // ),
+          
               CreditCardWidget(
                 cardNumber: cardNumber,
                 expiryDate: expiryDate,
@@ -103,8 +95,8 @@ class MySampleState extends State<CreditCartPage> {
                 obscureCardCvv: true,
                 isHolderNameVisible: true,
                 cardBgColor: isLightTheme
-                    ? AppColors.cardBgLightColor
-                    : AppColors.cardBgColor,
+                    ? AppTheme.cardBgLightColor
+                    : AppTheme.cardBgColor,
                 backgroundImage:
                     useBackgroundImage ? 'assets/card_bg.png' : null,
                 isSwipeGestureEnabled: true,
@@ -168,22 +160,12 @@ class MySampleState extends State<CreditCartPage> {
     return formKey.currentState?.validate() ?? false;
   }
 
-  // Glassmorphism? _getGlassmorphismConfig() {
-  //   if (!useGlassMorphism) {
-  //     return null;
-  //   }
-
   final LinearGradient gradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: <Color>[Colors.grey.withAlpha(50), Colors.grey.withAlpha(50)],
     stops: const <double>[0.3, 0],
   );
-
-  //   return isLightTheme
-  //       ? Glassmorphism(blurX: 8.0, blurY: 16.0, gradient: gradient)
-  //       : Glassmorphism.defaultConfig();
-  // }
 
   void onCreditCardModelChange(CreditCardModel creditCardModel) {
     setState(() {

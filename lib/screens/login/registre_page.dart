@@ -1,11 +1,7 @@
-import 'dart:developer';
-
 import 'package:coffee_shop_app/screens/login/components/button.dart';
-import 'package:coffee_shop_app/screens/login/components/register_button.dart';
 import 'package:coffee_shop_app/screens/login/components/textfield.dart';
+import 'package:coffee_shop_app/theme/app_theme.dart';
 import 'package:coffee_shop_app/widgets/custom_app_bar.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'firebase_helper.dart';
@@ -30,7 +26,7 @@ class _RegistrePageState extends State<RegistrePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color(0xFFF9F9F9),
+      backgroundColor: AppTheme.backgroundColor2,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30.0),

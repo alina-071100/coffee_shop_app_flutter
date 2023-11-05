@@ -1,18 +1,15 @@
 import 'package:coffee_shop_app/models/coffee_models.dart';
 import 'package:coffee_shop_app/provider/menu_page_provider.dart';
-import 'package:coffee_shop_app/screens/coffee_detail.dart';
-import 'package:coffee_shop_app/screens/menu_page.dart';
 import 'package:coffee_shop_app/screens/order_page.dart';
 import 'package:coffee_shop_app/theme/app_theme.dart';
 import 'package:coffee_shop_app/widgets/custom_filledbutton.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 
 class BagPage extends StatefulWidget {
-  BagPage({super.key});
+  const BagPage({super.key});
 
   @override
   State<BagPage> createState() => _BagPageState();
@@ -22,7 +19,6 @@ class _BagPageState extends State<BagPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
     return Consumer<MenuPageProvider>(
       builder: (context, myType, child) {
         return Scaffold(
@@ -34,7 +30,7 @@ class _BagPageState extends State<BagPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 50,
                     ),
                     Center(
@@ -47,14 +43,11 @@ class _BagPageState extends State<BagPage> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
-                    // SizedBox(
-                    //   height: 50,
-                    // ),
-                    Container(
-                      height: 500,
+                    SizedBox(
+                      height: 600,
                       child: myType.addCoffee.isNotEmpty
                           ? ListView.builder(
                               itemCount: context
@@ -73,15 +66,15 @@ class _BagPageState extends State<BagPage> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 30,
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Iconsax.bag,
                                     size: 40,
                                     color: Colors.grey,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 20,
                                   ),
                                   Text(
@@ -117,14 +110,14 @@ class _BagPageState extends State<BagPage> {
                             child: CustomFilledButton(
                               height: 62,
                               borderRadius: 16,
-                              color: const Color(0xFFC67C4E),
+                              color: AppTheme.buttonColor,
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Column(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('Payable',
+                                    Text('Checkout',
                                         style: GoogleFonts.sora(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w600,
@@ -152,7 +145,7 @@ class _BagPageState extends State<BagPage> {
   }
 
   Widget singleCoffee(CoffeeModel coffee, BuildContext cont) {
-    return Container(
+    return SizedBox(
       height: 80,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Row(
@@ -167,29 +160,39 @@ class _BagPageState extends State<BagPage> {
                         image: AssetImage(coffee!.image), fit: BoxFit.cover)),
               ),
             const SizedBox(
-              width: 12,
+              width: 10,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  coffee?.name ?? "",
-                  style: AppTheme.largeText.copyWith(fontSize: 16),
+             const   SizedBox(
+                  height: 2,
                 ),
+                Text(coffee?.name ?? "",
+                    style: AppTheme.largeText
+                        .copyWith(fontSize: 16)
+                        .copyWith(overflow: TextOverflow.ellipsis)),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width / 2.7,
+                  width: MediaQuery.of(context).size.width / 2.9,
                   child: Text(
                     coffee?.coffeeWith ?? "",
-                    style: AppTheme.coffeeWithText
-                        .copyWith(fontSize: 12)
-                        .copyWith(overflow: TextOverflow.ellipsis),
+                    style:
+                        AppTheme.coffeeWithText.copyWith(fontSize: 12).copyWith(
+                              overflow: TextOverflow.ellipsis,
+                            ),
                   ),
+                ),
+              const  SizedBox(
+                  height: 2,
                 ),
                 Text(
                   "\$ ${coffee.priceItems} ",
                   style: AppTheme.coffeeWithText
                       .copyWith(fontSize: 15, color: Colors.black),
+                ),
+               const SizedBox(
+                  height: 1,
                 ),
               ],
             ),
@@ -199,10 +202,9 @@ class _BagPageState extends State<BagPage> {
           children: [
             InkWell(
               onTap: () {
-                // count--;
                 cont.read<MenuPageProvider>().minusItem(coffee);
               },
-              child: Icon(
+              child: const Icon(
                 Iconsax.minus,
                 size: 25,
               ),
@@ -210,15 +212,14 @@ class _BagPageState extends State<BagPage> {
             Text("${coffee.count ?? ""}"),
             InkWell(
               onTap: () {
-                // count--;
                 cont.read<MenuPageProvider>().plusItem(coffee);
               },
-              child: Icon(
+              child: const Icon(
                 Iconsax.add,
                 size: 25,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             GestureDetector(
@@ -244,59 +245,6 @@ class _BagPageState extends State<BagPage> {
                 ),
               ),
             ),
-            //   child: Icon(
-            //     Iconsax.add,
-            //     size: 25,
-            //   ),
-            // ),
-            // SizedBox(
-            //   width: 6,
-            // ),
-            // // InkWell(
-            // //   onTap: () {
-            // //     // count--;
-            // //     cont.read<MenuPageProvider>().deletedItem(coffee);
-            // //   },
-            // //   child: Container(
-            // //     height: 30,
-            // //     width: 30,
-            // //     decoration: BoxDecoration(
-            // //         shape: BoxShape.circle,
-            // //         border:
-            // //             Border.all(color: Color.fromARGB(255, 183, 181, 181))),
-            // //     child: Icon(
-            // //       Iconsax.trash,
-            // //       size: 20,
-            // //     ),
-            // //   ),
-            // // ),
-
-            // GestureDetector(
-            //   onTap: () {
-            //     cont.read<MenuPageProvider>().deletedItem(coffee);
-            //     ScaffoldMessenger.of(context).showSnackBar(
-            //       const SnackBar(
-            //         backgroundColor: Color.fromARGB(255, 247, 247, 247),
-            //         content: Text(
-            //           "Item removed!",
-            //           style: TextStyle(color: Colors.black),
-            //         ),
-            //       ),
-            //     );
-            //   },
-            //   child: CircleAvatar(
-            //     backgroundColor: Colors.redAccent.withOpacity(0.07),
-            //     radius: 18,
-            //     child: const Icon(
-            //       Iconsax.trash,
-            //       color: Colors.redAccent,
-            //       size: 14,
-            //     ),
-            //   ),
-            // ),
-            // SizedBox(
-            //   width: 1,
-            // ),
           ],
         ),
       ]),

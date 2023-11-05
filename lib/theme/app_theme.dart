@@ -25,6 +25,8 @@ class AppTheme {
 
   static const Color starColor = Colors.yellow;
 
+  static const Color cardBgColor = Color(0xff363636);
+  static const Color cardBgLightColor = Color(0xff999999);
   // Page Indicator
 
   static TextStyle homeTitle = GoogleFonts.sora(
@@ -62,6 +64,7 @@ class AppTheme {
     fontSize: 16,
     fontWeight: FontWeight.w600,
     color: const Color(0xFF2F2D2C),
+    
   );
 
   static TextStyle coffeeWithText = GoogleFonts.sora(

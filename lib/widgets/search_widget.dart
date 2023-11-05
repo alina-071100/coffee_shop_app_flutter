@@ -1,3 +1,4 @@
+import 'package:coffee_shop_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
@@ -31,7 +32,7 @@ class SearchWidget extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                color: const Color(0xFFC67C4E),
+                color: AppTheme.buttonColor,
               ),
               width: 44,
               height: 44,

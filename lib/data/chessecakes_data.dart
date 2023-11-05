@@ -56,7 +56,7 @@ List<CoffeeModel> cheescakeList = [
   CoffeeModel(
     id: "5",
     image: 'assets/cheesecake/nuttella.jpg',
-    name: "Creame Cheesecake",
+    name: "Creame Chees",
     coffeeWith: " whit Chocolate and Vanilla",
     price: 16,
     priceItems: 16,

@@ -1,10 +1,7 @@
 import 'package:coffee_shop_app/models/coffee_models.dart';
 import 'package:coffee_shop_app/provider/menu_page_provider.dart';
 import 'package:coffee_shop_app/screens/card/credit_card_page.dart';
-import 'package:coffee_shop_app/screens/delivery_page.dart';
 import 'package:coffee_shop_app/theme/app_theme.dart';
-
-import 'package:coffee_shop_app/widgets/custom_app_bar.dart';
 import 'package:coffee_shop_app/widgets/custom_filledbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -45,7 +42,7 @@ class _OrderPageState extends State<OrderPage> {
                   style: GoogleFonts.sora(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
-                    color: Color(0xFF2F2D2C),
+                    color: const Color(0xFF2F2D2C),
                   ),
                 ),
               ),
@@ -53,7 +50,7 @@ class _OrderPageState extends State<OrderPage> {
             leading: Padding(
               padding: const EdgeInsets.only(left: 30, top: 16),
               child: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_ios_new_rounded,
                   color: Colors.black,
                 ),
@@ -64,39 +61,43 @@ class _OrderPageState extends State<OrderPage> {
             ),
           ),
           bottomNavigationBar: Container(
-            padding: EdgeInsets.symmetric(horizontal: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 30),
             decoration: BoxDecoration(
-                color: Color(0xFFFFFFFF),
-                borderRadius: BorderRadius.circular(24)),
+                color: Colors.white, borderRadius: BorderRadius.circular(24)),
             height: 161,
             width: MediaQuery.of(context).size.width,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(top: 16),
+                  padding: const EdgeInsets.only(top: 16),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Iconsax.moneys,
                             color: Color(0xFFC67C4E),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 12,
                           ),
                           Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
-                                color: Color(0xFFF2F2F2)),
+                                color: const Color(0xFFF2F2F2)),
                             height: 24,
                             width: 112,
                             child: Row(
                               children: [
                                 Expanded(
                                   child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        color: AppTheme.buttonColor),
+                                    height: 24,
+                                    width: 51,
                                     child: Center(
                                       child: Text(
                                         "Cashe",
@@ -107,11 +108,6 @@ class _OrderPageState extends State<OrderPage> {
                                         ),
                                       ),
                                     ),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: Color(0xFFC67C4E)),
-                                    height: 24,
-                                    width: 51,
                                   ),
                                 ),
                                 Expanded(
@@ -683,10 +679,6 @@ class _OrderPageState extends State<OrderPage> {
                     style: AppTheme.coffeeWithText
                         .copyWith(fontSize: 12, color: Colors.black),
                   ),
-                  // Text(
-                  //   "\$ ${coffee.priceItems} ",
-                  //   style: AppTheme.coffeeWithText.copyWith(fontSize: 15),
-                  // ),
                 ],
               ),
             ),
@@ -741,25 +733,6 @@ class _OrderPageState extends State<OrderPage> {
                 ),
               ),
             ),
-            // InkWell(
-            //   onTap: () {
-            //     // count--;
-            //     cont.read<MenuPageProvider>().deletedItem(coffee);
-            //   },
-
-            //   child: Container(
-            //     height: 30,
-            //     width: 30,
-            //     decoration: BoxDecoration(
-            //         shape: BoxShape.circle,
-            //         border:
-            //             Border.all(color: Color.fromARGB(255, 183, 181, 181))),
-            //     child: Icon(
-            //       Iconsax.trash,
-            //       size: 20,
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ]),

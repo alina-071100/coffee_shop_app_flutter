@@ -1,6 +1,7 @@
 import 'package:coffee_shop_app/screens/bag_page.dart';
 import 'package:coffee_shop_app/screens/heart_page.dart';
 import 'package:coffee_shop_app/screens/menu_page.dart';
+import 'package:coffee_shop_app/screens/profile_notifiqation_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -16,23 +17,16 @@ class _BottomNavigationBarExampleState extends State<BottomBar> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static  List<Widget> _widgetOptions = <Widget>[
+  static List<Widget> _widgetOptions = <Widget>[
     MenuPage(),
     LikePage(),
     BagPage(),
-    Text(
-      'Index 1: Not',
-      style: optionStyle,
-    ),
+    ProfileNotificationPage(),
   ];
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-
-      // if (index == 1) {
-      //   LikePage();
-      // }
     });
   }
 

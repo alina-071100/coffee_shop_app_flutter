@@ -1,14 +1,16 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:coffee_shop_app/screens/card/credit_card_page.dart';
 import 'package:coffee_shop_app/screens/order_page.dart';
 import 'package:coffee_shop_app/theme/app_theme.dart';
 import 'package:coffee_shop_app/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 
 import 'package:coffee_shop_app/models/coffee_models.dart';
-import 'package:coffee_shop_app/test.dart';
+import 'package:coffee_shop_app/widgets/navigator.dart';
 import 'package:coffee_shop_app/widgets/custom_filledbutton.dart';
 
 class DetailPage extends StatefulWidget {
@@ -74,9 +76,7 @@ class _DetailPageState extends State<DetailPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => OrderPage(
-                                coffee: widget.coffee,
-                              )));
+                          builder: (context) => const CreditCartPage()));
                 },
                 child: CustomFilledButton(
                   width: MediaQuery.of(context).size.width / 1.8,
@@ -179,7 +179,7 @@ class _DetailPageState extends State<DetailPage> {
                         width: 44,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(14),
-                          color: Color.fromARGB(255, 239, 238, 238),
+                          color: const Color.fromARGB(255, 239, 238, 238),
                         ),
                         child: Image.asset(
                           "assets/images/coffee-bean.png",
@@ -195,7 +195,7 @@ class _DetailPageState extends State<DetailPage> {
                         width: 44,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(14),
-                          color: Color.fromARGB(255, 239, 238, 238),
+                          color: const Color.fromARGB(255, 239, 238, 238),
                         ),
                         child: Image.asset(
                           "assets/images/packaging.png",
@@ -237,20 +237,17 @@ class _DetailPageState extends State<DetailPage> {
                   child: SingleChildScrollView(
                     child: ReadMoreText(
                       widget.coffee.description.toString(),
-
                       style: AppTheme.readeMoreText,
                       trimMode: TrimMode.Line,
                       moreStyle: const TextStyle(
                           color: AppTheme.buttonColor,
                           fontWeight: FontWeight.bold),
-
                       lessStyle: const TextStyle(
                           color: AppTheme.buttonColor,
                           fontWeight: FontWeight.bold),
                       trimLines: 3,
                       trimCollapsedText: "Read More",
                       trimExpandedText: " Show Less",
-                      // colorClickableText: Color(0xFFC67C4E),
                     ),
                   ),
                 )
@@ -326,7 +323,6 @@ class SizeChoiseView extends StatelessWidget {
             fontWeight: FontWeight.w400,
             color: const Color(0xFF2F2D2C),
           ),
-          // style: Color(0xFFFFFFFF),
         ),
       ),
     );

@@ -1,5 +1,5 @@
 import 'package:coffee_shop_app/screens/login/login_page.dart';
-import 'package:coffee_shop_app/test.dart';
+import 'package:coffee_shop_app/widgets/navigator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
