@@ -101,7 +101,6 @@ class _ProfileNotificationPageState extends State<ProfileNotificationPage> {
               const SizedBox(height: 20),
 
               Text(loginUser!.email.toString()),
-              const Divider(),
               const SizedBox(height: 30),
               const Divider(),
               const SizedBox(height: 10),
