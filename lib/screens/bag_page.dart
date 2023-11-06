@@ -18,7 +18,6 @@ class BagPage extends StatefulWidget {
 class _BagPageState extends State<BagPage> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Consumer<MenuPageProvider>(
       builder: (context, myType, child) {
         return Scaffold(

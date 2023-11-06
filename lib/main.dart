@@ -24,7 +24,7 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (context) => MenuPageProvider()),
         ChangeNotifierProvider(create: (context) => FavouritListProvider())
       ],
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           routes: {
             '/': (context) => const HomePage(),
-            MenuPage.routeName: (context) => MenuPage(),
+            MenuPage.routeName: (context) => const MenuPage(),
             BottomBar.routeName: (context) => const BottomBar(),
           },
         );

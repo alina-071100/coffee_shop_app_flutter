@@ -19,11 +19,8 @@ class _MapWidgetState extends State<MapWidget> {
         width: size.width,
         height: size.height,
         child: FlutterMap(
-          options: MapOptions(
+          options: const MapOptions(
             initialCenter: LatLng(40.7942, 43.84528),
-
-            // initialCenter: LatLng(51.509364, -0.128928),
-            // initialZoom: 9.2,
           ),
           children: [
             TileLayer(

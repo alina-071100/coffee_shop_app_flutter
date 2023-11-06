@@ -7,6 +7,10 @@ import 'package:flutter/material.dart';
 class ServicFire {
   final auth = FirebaseAuth.instance;
 
+
+
+
+
   void createUser(
       context, String email, String password, String confirmPassword) async {
     try {
@@ -17,7 +21,7 @@ class ServicFire {
             .createUserWithEmailAndPassword(email: email, password: password)
             .then((value) => {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginPage()))
+                      MaterialPageRoute(builder: (context) => const LoginPage()))
                 });
       }
     } catch (e) {
@@ -43,7 +47,7 @@ class ServicFire {
       await auth.signOut().then((value) => {
             Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (context) => LoginPage()),
+                MaterialPageRoute(builder: (context) =>const LoginPage()),
                 (route) => false)
           });
     } catch (e) {
@@ -60,5 +64,13 @@ class ServicFire {
             content: Text(e.toString()),
           );
         });
+
   }
+
+
+
+
+  
 }
+
+

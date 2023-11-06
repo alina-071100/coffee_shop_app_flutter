@@ -105,7 +105,7 @@ class _OrderPageState extends State<OrderPage> {
                                         style: GoogleFonts.sora(
                                           fontSize: 12,
                                           fontWeight: FontWeight.w400,
-                                          color: Color(0xFFFFFFFF),
+                                          color: const Color(0xFFFFFFFF),
                                         ),
                                       ),
                                     ),
@@ -113,21 +113,21 @@ class _OrderPageState extends State<OrderPage> {
                                 ),
                                 Expanded(
                                   child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        color: const Color(0xFFF2F2F2)),
+                                    height: 24,
+                                    width: 51,
                                     child: Center(
                                       child: Text(
                                         "\$ ${myType.coffeeTotal}",
                                         style: GoogleFonts.sora(
                                           fontSize: 12,
                                           fontWeight: FontWeight.w400,
-                                          color: Color(0xFF2F2D2C),
+                                          color: const Color(0xFF2F2D2C),
                                         ),
                                       ),
                                     ),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: Color(0xFFF2F2F2)),
-                                    height: 24,
-                                    width: 51,
                                   ),
                                 ),
                               ],
@@ -149,7 +149,6 @@ class _OrderPageState extends State<OrderPage> {
                       Expanded(
                         child: InkWell(
                           onTap: () {
-                            print(widget.coffee);
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -186,173 +185,114 @@ class _OrderPageState extends State<OrderPage> {
                         const SizedBox(
                           height: 25,
                         ),
-
-                        TypeToggle(),
-
-                        // Container(
-                        //   decoration: BoxDecoration(
-                        //       borderRadius: BorderRadius.circular(14),
-                        //       color: const Color(0xFFF2F2F2)),
-                        //   height: 50,
-                        //   // width: 315,
-
-                        //   child: Padding(
-                        //     padding:
-                        //         const EdgeInsets.symmetric(horizontal: 4.0),
-                        //     child: Row(
-                        //       children: [
-
-                        //         // Expanded(
-                        //         //   child: Container(
-                        //         //     child: Center(
-                        //         //       child: Text(
-                        //         //         "Deliver",
-                        //         //         style: GoogleFonts.sora(
-                        //         //           fontSize: 16,
-                        //         //           fontWeight: FontWeight.w600,
-                        //         //           color: Color(0xFFFFFFFF),
-                        //         //         ),
-                        //         //       ),
-                        //         //     ),
-                        //         //     decoration: BoxDecoration(
-                        //         //         borderRadius:
-                        //         //             BorderRadius.circular(10),
-                        //         //         color: AppTheme.buttonColor),
-                        //         //     height: 42,
-                        //         //   ),
-                        //         // ),
-                        //         // Expanded(
-                        //         //   child: Container(
-                        //         //     child: Center(
-                        //         //       child: Text(
-                        //         //         "Pick Up",
-                        //         //         style: AppTheme.largeText,
-                        //         //       ),
-                        //         //     ),
-                        //         //     decoration: BoxDecoration(
-                        //         //         borderRadius:
-                        //         //             BorderRadius.circular(10),
-                        //         //         color: Color(0xFFF2F2F2)),
-                        //         //     height: 42,
-                        //         //   ),
-                        //         // ),
-                        //       ],
-                        //     ),
-                        //   ),
-
-                        // ),
-                        SizedBox(
+                        const TypeToggle(),
+                        const SizedBox(
                           height: 24,
                         ),
                         Row(
                           children: [
                             Expanded(
-                              child: Container(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Delivery Address",
-                                      style: AppTheme.largeText,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 16),
-                                      child: Text(
-                                        "Jl. Kpg Sutoyo",
-                                        style: GoogleFonts.sora(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w600,
-                                          color: Color(0xFF303336),
-                                        ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Delivery Address",
+                                    style: AppTheme.largeText,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 16),
+                                    child: Text(
+                                      "Jl. Kpg Sutoyo",
+                                      style: GoogleFonts.sora(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                        color: const Color(0xFF303336),
                                       ),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 8.0),
-                                      child: Text(
-                                        "Kpg. Sutoyo No. 620, Bilzen, Tanjungbalai.",
-                                        style: AppTheme.subtileLarge,
-                                      ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 8.0),
+                                    child: Text(
+                                      "Kpg. Sutoyo No. 620, Bilzen, Tanjungbalai.",
+                                      style: AppTheme.subtileLarge,
                                     ),
-                                    const SizedBox(
-                                      height: 16,
-                                    ),
-                                    Row(
-                                      children: [
-                                        Container(
-                                          child: Padding(
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 12),
-                                            child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Icon(
-                                                    Iconsax.edit,
-                                                    size: 14,
-                                                    color: Colors.black,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 4,
-                                                  ),
-                                                  Text(
-                                                    "Edit Address",
-                                                    style:
-                                                        AppTheme.subtileLarge,
-                                                  )
-                                                ]),
-                                          ),
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(16),
-                                              color: Color(0xFFFFFFFF),
-                                              border: Border.all(
-                                                  color: Color(0xFFDEDEDE))),
-                                          height: 27,
+                                  ),
+                                  const SizedBox(
+                                    height: 16,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(16),
+                                            color: const Color(0xFFFFFFFF),
+                                            border: Border.all(
+                                                color:
+                                                    const Color(0xFFDEDEDE))),
+                                        height: 27,
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 12),
+                                          child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                const Icon(
+                                                  Iconsax.edit,
+                                                  size: 14,
+                                                  color: Colors.black,
+                                                ),
+                                                const SizedBox(
+                                                  width: 4,
+                                                ),
+                                                Text(
+                                                  "Edit Address",
+                                                  style: AppTheme.subtileLarge,
+                                                )
+                                              ]),
                                         ),
-                                        SizedBox(
-                                          width: 8,
-                                        ),
-                                        Container(
-                                          child: Padding(
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 12),
-                                            child: Row(
-                                                // mainAxisAlignment:
-                                                //     MainAxisAlignment.spaceBetween,
-                                                children: [
-                                                  Icon(
-                                                    Iconsax.note_1,
-                                                    size: 14,
-                                                  ),
-                                                  Text(
-                                                    "  Add Note",
-                                                    style:
-                                                        AppTheme.subtileLarge,
-                                                  )
-                                                ]),
-                                          ),
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(16),
-                                              color: Color(0xFFFFFFFF),
-                                              border: Border.all(
-                                                  color: Color(0xFFDEDEDE))),
-                                          height: 27,
-                                        )
-                                      ],
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 20, bottom: 20),
-                                      child: Divider(
-                                        height: 1,
-                                        thickness: 1,
-                                        color: Color(0xFFEAEAEA),
                                       ),
+                                      const SizedBox(
+                                        width: 8,
+                                      ),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(16),
+                                            color: const Color(0xFFFFFFFF),
+                                            border: Border.all(
+                                                color:
+                                                    const Color(0xFFDEDEDE))),
+                                        height: 27,
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 12),
+                                          child: Row(children: [
+                                            const Icon(
+                                              Iconsax.note_1,
+                                              size: 14,
+                                            ),
+                                            Text(
+                                              "  Add Note",
+                                              style: AppTheme.subtileLarge,
+                                            )
+                                          ]),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  const Padding(
+                                    padding:
+                                        EdgeInsets.only(top: 20, bottom: 20),
+                                    child: Divider(
+                                      height: 1,
+                                      thickness: 1,
+                                      color: Color(0xFFEAEAEA),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
@@ -360,7 +300,7 @@ class _OrderPageState extends State<OrderPage> {
                         ...List.generate(
                             myType.addCoffee.length,
                             (index) => Padding(
-                                  padding: EdgeInsets.only(bottom: 10),
+                                  padding: const EdgeInsets.only(bottom: 10),
                                   child: singleCoffee(
                                       myType.addCoffee[index], context),
                                 )),
@@ -368,8 +308,8 @@ class _OrderPageState extends State<OrderPage> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 20, bottom: 20),
+                const Padding(
+                  padding: EdgeInsets.only(top: 20, bottom: 20),
                   child: Divider(
                     height: 4,
                     thickness: 4,
@@ -384,8 +324,8 @@ class _OrderPageState extends State<OrderPage> {
                       Container(
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(14),
-                            color: Color(0xFFFFFFFF),
-                            border: Border.all(color: Color(0xFFEAEAEA))),
+                            color: const Color(0xFFFFFFFF),
+                            border: Border.all(color: const Color(0xFFEAEAEA))),
                         height: 56,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -394,8 +334,8 @@ class _OrderPageState extends State<OrderPage> {
                             children: [
                               Row(
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 8.0),
+                                  const Padding(
+                                    padding: EdgeInsets.only(right: 8.0),
                                     child: Icon(
                                       Iconsax.discount_shape5,
                                       color: Color(0xFFC67C4E),
@@ -406,12 +346,12 @@ class _OrderPageState extends State<OrderPage> {
                                     style: GoogleFonts.sora(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,
-                                      color: Color(0xFF2F2D2C),
+                                      color: const Color(0xFF2F2D2C),
                                     ),
                                   ),
                                 ],
                               ),
-                              Icon(
+                              const Icon(
                                 Icons.arrow_forward_ios_rounded,
                                 size: 14,
                               )
@@ -426,11 +366,11 @@ class _OrderPageState extends State<OrderPage> {
                           style: GoogleFonts.sora(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
-                            color: Color(0xFF2F2D2C),
+                            color: const Color(0xFF2F2D2C),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 16,
                       ),
                       Row(
@@ -441,7 +381,7 @@ class _OrderPageState extends State<OrderPage> {
                             style: GoogleFonts.sora(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
-                              color: Color(0xFF2F2D2C),
+                              color: const Color(0xFF2F2D2C),
                             ),
                           ),
                           Text(
@@ -449,12 +389,12 @@ class _OrderPageState extends State<OrderPage> {
                             style: GoogleFonts.sora(
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
-                              color: Color(0xFF2F2D2C),
+                              color: const Color(0xFF2F2D2C),
                             ),
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 16,
                       ),
                       Row(
@@ -465,13 +405,13 @@ class _OrderPageState extends State<OrderPage> {
                             style: GoogleFonts.sora(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
-                              color: Color(0xFF2F2D2C),
+                              color: const Color(0xFF2F2D2C),
                             ),
                           ),
                           Row(
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(right: 8),
+                              const Padding(
+                                padding: EdgeInsets.only(right: 8),
                                 child: Text(
                                   "\$ 2.0",
                                   style: TextStyle(
@@ -483,20 +423,20 @@ class _OrderPageState extends State<OrderPage> {
                                 style: GoogleFonts.sora(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w600,
-                                  color: Color(0xFF2F2D2C),
+                                  color: const Color(0xFF2F2D2C),
                                 ),
                               )
                             ],
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 16,
                       ),
-                      Divider(
+                      const Divider(
                         color: Color(0xFFEAEAEA),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 16,
                       ),
                       Row(
@@ -507,7 +447,7 @@ class _OrderPageState extends State<OrderPage> {
                             style: GoogleFonts.sora(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
-                              color: Color(0xFF2F2D2C),
+                              color: const Color(0xFF2F2D2C),
                             ),
                           ),
                           Text(
@@ -515,12 +455,12 @@ class _OrderPageState extends State<OrderPage> {
                             style: GoogleFonts.sora(
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
-                              color: Color(0xFF2F2D2C),
+                              color: const Color(0xFF2F2D2C),
                             ),
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 16,
                       )
                     ],
@@ -535,7 +475,7 @@ class _OrderPageState extends State<OrderPage> {
   }
 
   Widget singleCoffee(CoffeeModel coffee, BuildContext cont) {
-    return Container(
+    return SizedBox(
       height: 60,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Row(
@@ -588,7 +528,7 @@ class _OrderPageState extends State<OrderPage> {
                 // count--;
                 cont.read<MenuPageProvider>().minusItem(coffee);
               },
-              child: Icon(
+              child: const Icon(
                 Iconsax.minus,
                 size: 25,
               ),
@@ -599,12 +539,12 @@ class _OrderPageState extends State<OrderPage> {
                 // count--;
                 cont.read<MenuPageProvider>().plusItem(coffee);
               },
-              child: Icon(
+              child: const Icon(
                 Iconsax.add,
                 size: 25,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             GestureDetector(

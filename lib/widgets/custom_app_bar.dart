@@ -65,7 +65,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                   child: widget.icon ??
                       Icon(
                         widget.suffixIcon ?? Icons.favorite,
-                        color: Color.fromARGB(255, 22, 22, 22),
+                        color:const Color.fromARGB(255, 22, 22, 22),
                         size: 24,
                       ),
                 )

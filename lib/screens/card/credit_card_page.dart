@@ -61,96 +61,92 @@ class MySampleState extends State<CreditCartPage> {
       ),
       resizeToAvoidBottomInset: false,
       body: Builder(builder: (BuildContext context) {
-        return Container(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 15, bottom: 20, right: 15),
-                child: CustomAppBar(
-                  title: "Add card",
-                  functionBackIcon: () {
-                    Navigator.pop(context);
-                  },
-                  functionLikeIcon: () {
-                    setState(() {
-                      isLightTheme = !isLightTheme;
-                    });
-                  },
-                  suffixIcon: isLightTheme ? Icons.light_mode : Icons.dark_mode,
+        return Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 15, bottom: 20, right: 15),
+              child: CustomAppBar(
+                title: "Add card",
+                functionBackIcon: () {
+                  Navigator.pop(context);
+                },
+                functionLikeIcon: () {
+                  setState(() {
+                    isLightTheme = !isLightTheme;
+                  });
+                },
+                suffixIcon: isLightTheme ? Icons.light_mode : Icons.dark_mode,
+              ),
+            ),
+            CreditCardWidget(
+              cardNumber: cardNumber,
+              expiryDate: expiryDate,
+              cardHolderName: cardHolderName,
+              cvvCode: cvvCode,
+              bankName: 'Axis Bank',
+              frontCardBorder:
+                  useGlassMorphism ? null : Border.all(color: Colors.grey),
+              backCardBorder:
+                  useGlassMorphism ? null : Border.all(color: Colors.grey),
+              showBackView: isCvvFocused,
+              obscureCardNumber: true,
+              obscureCardCvv: true,
+              isHolderNameVisible: true,
+              cardBgColor: isLightTheme
+                  ? AppTheme.cardBgLightColor
+                  : AppTheme.cardBgColor,
+              backgroundImage: useBackgroundImage ? 'assets/card_bg.png' : null,
+              isSwipeGestureEnabled: true,
+              onCreditCardWidgetChange: (CreditCardBrand creditCardBrand) {},
+              customCardTypeIcons: <CustomCardTypeIcon>[
+                CustomCardTypeIcon(
+                  cardType: CardType.mastercard,
+                  cardImage: Image.asset(
+                    'assets/mastercard.png',
+                    height: 48,
+                    width: 48,
+                  ),
                 ),
-              ),
-          
-              CreditCardWidget(
-                cardNumber: cardNumber,
-                expiryDate: expiryDate,
-                cardHolderName: cardHolderName,
-                cvvCode: cvvCode,
-                bankName: 'Axis Bank',
-                frontCardBorder:
-                    useGlassMorphism ? null : Border.all(color: Colors.grey),
-                backCardBorder:
-                    useGlassMorphism ? null : Border.all(color: Colors.grey),
-                showBackView: isCvvFocused,
-                obscureCardNumber: true,
-                obscureCardCvv: true,
-                isHolderNameVisible: true,
-                cardBgColor: isLightTheme
-                    ? AppTheme.cardBgLightColor
-                    : AppTheme.cardBgColor,
-                backgroundImage:
-                    useBackgroundImage ? 'assets/card_bg.png' : null,
-                isSwipeGestureEnabled: true,
-                onCreditCardWidgetChange: (CreditCardBrand creditCardBrand) {},
-                customCardTypeIcons: <CustomCardTypeIcon>[
-                  CustomCardTypeIcon(
-                    cardType: CardType.mastercard,
-                    cardImage: Image.asset(
-                      'assets/mastercard.png',
-                      height: 48,
-                      width: 48,
+              ],
+            ),
+            Expanded(
+                child: SingleChildScrollView(
+              child: Column(children: <Widget>[
+                CreditCardForm(
+                  formKey: formKey,
+                  obscureCvv: true,
+                  obscureNumber: true,
+                  cardNumber: cardNumber,
+                  cvvCode: cvvCode,
+                  isHolderNameVisible: true,
+                  isCardNumberVisible: true,
+                  isExpiryDateVisible: true,
+                  cardHolderName: cardHolderName,
+                  expiryDate: expiryDate,
+                  inputConfiguration: const InputConfiguration(
+                    cardNumberDecoration: InputDecoration(
+                      labelText: 'Number',
+                      hintText: 'XXXX XXXX XXXX XXXX',
+                    ),
+                    expiryDateDecoration: InputDecoration(
+                      labelText: 'Expired Date',
+                      hintText: 'XX/XX',
+                    ),
+                    cvvCodeDecoration: InputDecoration(
+                      labelText: 'CVV',
+                      hintText: 'XXX',
+                    ),
+                    cardHolderDecoration: InputDecoration(
+                      labelText: 'Card Holder',
                     ),
                   ),
-                ],
-              ),
-              Expanded(
-                  child: SingleChildScrollView(
-                child: Column(children: <Widget>[
-                  CreditCardForm(
-                    formKey: formKey,
-                    obscureCvv: true,
-                    obscureNumber: true,
-                    cardNumber: cardNumber,
-                    cvvCode: cvvCode,
-                    isHolderNameVisible: true,
-                    isCardNumberVisible: true,
-                    isExpiryDateVisible: true,
-                    cardHolderName: cardHolderName,
-                    expiryDate: expiryDate,
-                    inputConfiguration: const InputConfiguration(
-                      cardNumberDecoration: InputDecoration(
-                        labelText: 'Number',
-                        hintText: 'XXXX XXXX XXXX XXXX',
-                      ),
-                      expiryDateDecoration: InputDecoration(
-                        labelText: 'Expired Date',
-                        hintText: 'XX/XX',
-                      ),
-                      cvvCodeDecoration: InputDecoration(
-                        labelText: 'CVV',
-                        hintText: 'XXX',
-                      ),
-                      cardHolderDecoration: InputDecoration(
-                        labelText: 'Card Holder',
-                      ),
-                    ),
-                    onCreditCardModelChange: onCreditCardModelChange,
-                  ),
-                  const SizedBox(height: 20),
-                  const SizedBox(height: 20),
-                ]),
-              ))
-            ],
-          ),
+                  onCreditCardModelChange: onCreditCardModelChange,
+                ),
+                const SizedBox(height: 20),
+                const SizedBox(height: 20),
+              ]),
+            ))
+          ],
         );
       }),
     );

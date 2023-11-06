@@ -11,15 +11,15 @@ class PanelWidget extends StatelessWidget {
         padding: EdgeInsets.zero,
         controller: controller,
         children: [
-          SizedBox(
+       const   SizedBox(
             height: 10,
           ),
           buildHandle(),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           buildAboutText(),
-          SizedBox(height: 24),
+         const SizedBox(height: 24),
         ],
       );
 
@@ -33,7 +33,7 @@ class PanelWidget extends StatelessWidget {
       );
 
   Widget buildAboutText() => Container(
-        padding: EdgeInsets.symmetric(horizontal: 24),
+        padding:const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -42,10 +42,10 @@ class PanelWidget extends StatelessWidget {
               style: GoogleFonts.sora(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: Color(0xFF303336),
+                color:const Color(0xFF303336),
               ),
             ),
-            SizedBox(
+           const SizedBox(
               height: 6,
             ),
             Row(
@@ -56,19 +56,19 @@ class PanelWidget extends StatelessWidget {
                   style: GoogleFonts.sora(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      color: Color(0xFF808080)),
+                      color: const Color(0xFF808080)),
                 ),
                 Text(
                   " Jl. Kpg Sutoyo",
                   style: GoogleFonts.sora(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
-                    color: Color(0xFF303336),
+                    color:const Color(0xFF303336),
                   ),
                 )
               ],
             ),
-            SizedBox(height: 20),
+          const  SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Row(
@@ -78,17 +78,17 @@ class PanelWidget extends StatelessWidget {
                     height: 4,
                     width: 65,
                     decoration: BoxDecoration(
-                        color: Color(0xFF36C07E),
+                        color:const Color(0xFF36C07E),
                         borderRadius: BorderRadius.circular(12)),
                   ),
-                  SizedBox(
+                 const SizedBox(
                     width: 10,
                   ),
                   Container(
                     height: 4,
                     width: 65,
                     decoration: BoxDecoration(
-                        color: Color(0xFF36C07E),
+                        color: const Color(0xFF36C07E),
                         borderRadius: BorderRadius.circular(12)),
                   ),
                  const SizedBox(

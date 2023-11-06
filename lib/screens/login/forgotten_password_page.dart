@@ -159,13 +159,10 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   child: MaterialButton(
                     onPressed: () async {
                       if (_key.currentState!.validate()) {
-                        final _status = await resetPassword(
+                        final status = await resetPassword(
                             email: _emailController.text.trim());
-                        if (_status == AuthStatus.successful) {
-                          //your logic
-                        } else {
-                          //your logic or show snackBar with error message
-                        }
+                        if (status == AuthStatus.successful) {
+                        } 
                       }
                     },
                     minWidth: double.infinity,

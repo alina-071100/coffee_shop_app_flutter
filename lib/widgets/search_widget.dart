@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 
+// ignore: must_be_immutable
 class SearchWidget extends StatelessWidget {
   void Function(String)? onChanged;
   SearchWidget({super.key, this.onChanged});

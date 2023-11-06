@@ -82,27 +82,21 @@ class MenuPageProvider with ChangeNotifier {
   double get coffeeTotal => coffeeSubTotal + deliveryCharge;
 
   void searchCoffee(String value) {
-    print(value);
     final temp = coffeeList.where((element) {
       print(value);
-      // final name = element.name.toLowerCase();
 
       final coffeWithname = element.coffeeWith.toLowerCase();
-      final val = value.toLowerCase();
       return coffeWithname.contains(value);
-      // return name.contains(value);
     }).toList();
     addTestCoffee = temp;
     notifyListeners();
   }
 
   void searchCake(String value) {
-    print(value);
     final temptwo = cakeList.where((element) {
       print(value);
 
       final cakeName = element.coffeeWith.toLowerCase();
-      final val = value.toLowerCase();
       return cakeName.contains(value);
     }).toList();
     addTestCake = temptwo;
@@ -110,11 +104,9 @@ class MenuPageProvider with ChangeNotifier {
   }
 
   void searchChees(String value) {
-    print(value);
     final tempthree = cheescakeList.where((element) {
       print(value);
       final name = element.name.toLowerCase();
-      final val = value.toLowerCase();
       return name.contains(value);
     }).toList();
     addTestChees = tempthree;

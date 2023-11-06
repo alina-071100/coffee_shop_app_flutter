@@ -109,11 +109,11 @@ class _DetailPageState extends State<DetailPage> {
                     );
                   },
                   icon: widget.coffee.isFavorite ?? false
-                      ? Icon(
+                      ? const Icon(
                           Icons.favorite,
                           color: Colors.red,
                         )
-                      : Icon(
+                      : const Icon(
                           Icons.favorite_border,
                         ),
                   functionLikeIcon: () {

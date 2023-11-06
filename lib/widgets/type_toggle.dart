@@ -34,7 +34,7 @@ class _TypeToggleState extends State<TypeToggle> {
                 height: 42,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: selectedTab == 0 ? Color(0xffC67C4E) : Color(0xfffff),
+                  color: selectedTab == 0 ?const Color(0xffC67C4E) :  Color(0xfffff),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
@@ -59,7 +59,8 @@ class _TypeToggleState extends State<TypeToggle> {
               height: 42,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: selectedTab == 1 ? Color(0xffC67C4E) : Color(0xfffff),
+                color:
+                    selectedTab == 1 ? const Color(0xffC67C4E) :const Color(0xfffff),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Text(

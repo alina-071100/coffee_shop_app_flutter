@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -75,7 +74,7 @@ class AppTheme {
 
   static TextStyle coffeePriceText = GoogleFonts.sora(
     fontWeight: FontWeight.w600,
-    color: Color(0xFF2F4B4E),
+    color:const Color(0xFF2F4B4E),
     fontSize: 18,
   );
 
@@ -106,7 +105,7 @@ class AppTheme {
   static TextStyle subtileLarge = GoogleFonts.sora(
     fontSize: 12,
     fontWeight: FontWeight.w400,
-    color: Color(0xFF303336),
+    color: const Color(0xFF303336),
   );
 
   // Reviews Ratings
@@ -164,81 +163,5 @@ class AppTheme {
     fontWeight: FontWeight.w500,
   );
 
-  // // Price TextStyle
-  // static TextStyle priceCurrencySmall = GoogleFonts.roboto(
-  //   color: const Color(0xffD98046),
-  //   fontSize: 18,
-  //   fontWeight: FontWeight.w500,
-  // );
-  // static TextStyle priceValueSmall = GoogleFonts.roboto(
-  //   color: Colors.white,
-  //   fontSize: 18,
-  //   fontWeight: FontWeight.w500,
-  // );
-  // static TextStyle priceCurrencyLarge = GoogleFonts.roboto(
-  //   color: const Color(0xffD98046),
-  //   fontSize: 24,
-  //   fontWeight: FontWeight.bold,
-  // );
-  // static TextStyle priceTitleLarge = GoogleFonts.roboto(
-  //   color: const Color(0xff979696),
-  //   fontSize: 18,
-  //   fontWeight: FontWeight.w400,
-  // );
-  // static TextStyle priceValueLarge = GoogleFonts.roboto(
-  //   color: Colors.white,
-  //   fontSize: 24,
-  //   fontWeight: FontWeight.bold,
-  // );
-
-  // // Description TextStyle
-  // static TextStyle descriptionTitle = GoogleFonts.roboto(
-  //   color: const Color(0xff93969B),
-  //   fontSize: 18,
-  //   fontWeight: FontWeight.w800,
-  // );
-  // static TextStyle descriptionContent = GoogleFonts.roboto(
-  //   color: Colors.white,
-  //   fontSize: 14,
-  //   fontWeight: FontWeight.w400,
-  //   height: 1.4,
-  // );
-  // static TextStyle descriptionReadMore = GoogleFonts.roboto(
-  //   color: const Color(0xffD07540),
-  //   fontSize: 14,
-  //   fontWeight: FontWeight.w400,
-  // );
-
-  // // Chips TextStyle
-  // static TextStyle chipActive = GoogleFonts.roboto(
-  //   color: const Color(0xffD98046),
-  //   fontSize: 14,
-  //   fontWeight: FontWeight.bold,
-  // );
-  // static TextStyle chipInactive = GoogleFonts.roboto(
-  //   color: const Color(0xff4C4F54),
-  //   fontSize: 14,
-  //   fontWeight: FontWeight.bold,
-  // );
-
-//   // Buttons Style
-//   static const Color buttonBackground1Color = Color(0xffD98046);
-//   static const Color buttonBackground2Color = Color(0xff141823);
-//   static const Color buttonBorderColor = Color(0xffD17742);
-//   static TextStyle buttonTextStyle = GoogleFonts.roboto(
-//     color: Colors.white,
-//     fontSize: 18,
-//     fontWeight: FontWeight.w800,
-//   );
-//   static TextStyle buttonActiveTextStyle = GoogleFonts.roboto(
-//     color: const Color(0xffD17742),
-//     fontSize: 18,
-//     fontWeight: FontWeight.w800,
-//   );
-//   static TextStyle buttonInactiveTextStyle = GoogleFonts.roboto(
-//     color: const Color(0xffA6A2A2),
-//     fontSize: 18,
-//     fontWeight: FontWeight.w800,
-//   );
-// }
+ 
 }

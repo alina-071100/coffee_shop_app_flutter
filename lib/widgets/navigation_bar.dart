@@ -2,6 +2,7 @@ import 'package:coffee_shop_app/screens/bag_page.dart';
 import 'package:coffee_shop_app/screens/heart_page.dart';
 import 'package:coffee_shop_app/screens/menu_page.dart';
 import 'package:coffee_shop_app/screens/profile_notifiqation_page.dart';
+import 'package:coffee_shop_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -15,13 +16,11 @@ class BottomBar extends StatefulWidget {
 
 class _BottomNavigationBarExampleState extends State<BottomBar> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static List<Widget> _widgetOptions = <Widget>[
-    MenuPage(),
-    LikePage(),
-    BagPage(),
-    ProfileNotificationPage(),
+  static final List<Widget> _widgetOptions = <Widget>[
+    const MenuPage(),
+    const LikePage(),
+    const BagPage(),
+    const ProfileNotificationPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -53,7 +52,7 @@ class _BottomNavigationBarExampleState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF9F9F9),
+      backgroundColor: const Color(0xFFF9F9F9),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
@@ -82,7 +81,7 @@ class _BottomNavigationBarExampleState extends State<BottomBar> {
                           "assets/icons/$value.svg",
                           colorFilter: ColorFilter.mode(
                               _selectedIndex == key
-                                  ? Color(0xFFC67C4E)
+                                  ? AppTheme.buttonColor
                                   : const Color(0xff8D8D8D),
                               BlendMode.srcIn),
                         ),
